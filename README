@@ -1,18 +1,21 @@
 Codetry creators:
-David Evans https://github.com/davidjsevans
-
+Andrew Kemp https://github.com/andyajna Project Founder
+Peter Argent https://github.com/pedrogrande Project Founder, Sydney Dev Camp
+David Evans https://github.com/davidjsevans Coder
+Sydney Dev Camp class of Autumn 2013
 
 
 Application Name Overview
 ==============================================
 
-1-2 paragraphs with an overview of the app
+Codetry is a platform where coders from all over the world can post their poetry written in any code they like.
 
 
 Required Environment / Minimum Setup
 ----------------------------------------------
 
-Ruby version.
+Ruby version 1.9.3
+Rails version 3.2.13
 Minimum setup required to run the app. This should be checked by dev:setup
 
 

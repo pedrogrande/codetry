@@ -46,7 +46,7 @@ The application is configured to send email using a Gmail account.
 
 h2. Getting Started
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Create an account and post some codetry, comment on others' codetry, or simply browse.
 
 h2. Documentation and Support
 
@@ -54,11 +54,11 @@ This is the only documentation.
 
 h4. Issues
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+None known.
 
 h2. Similar Projects
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Nil.
 
 h2. Contributing
 
@@ -73,8 +73,13 @@ If you add functionality to this application, create an alternative implementati
 
 h2. Credits
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Codetry was created by "Sydney Dev Camp's":http://www.sydneydevcamp.com Class of Autumn 2013.
+
+Codetry Team
+Andrew Kemp, Project Founder "andyajna on GitHub":https://github.com/andyajna.
+Peter Argent, Project Director "pedrogrande on GitHub":https://github.com/pedrogrande.
+David Evans, Coder "davidjhsevans on GitHub":https://github.com/davidjsevans.
 
 h2. License
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Creative Commons License.
