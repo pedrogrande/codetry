@@ -18,7 +18,11 @@ gem "devise_invitable", ">= 1.1.5"
 gem "cancan", ">= 1.6.9"
 gem "rolify", ">= 3.2.0"
 gem "simple_form", ">= 2.1.0"
-gem "figaro", ">= 0.6.3"
 gem "better_errors", ">= 0.7.2", :group => :development
 gem "binding_of_caller", ">= 0.7.1", :group => :development, :platforms => [:mri_19, :rbx]
 gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
+gem "acts-as-taggable-on"
+gem "friendly_id"
+gem "acts_as_votable"
+gem "carrierwave"
+gem "fog"
