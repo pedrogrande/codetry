@@ -1,0 +1,25 @@
+<h1><%= @user.name %>'s Poems</h1>
+
+<table class="table">
+  <tr>
+    <th>Title</th>
+    <th>Language</th>
+    <th>User</th>
+    <th>Active</th>
+    <th></th>
+  </tr>
+
+<% @poems.each do |poem| %>
+  <tr>
+    <td><%= link_to poem.title, user_poem_path(poem.user, poem) %></td>
+    <td><%= poem.language %></td>
+    <td><%= poem.user.name %></td>
+    <td><%= poem.active %></td>
+    <td><%= link_to 'Delete', user_poem_path(poem.user, poem), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Poem', new_user_poem_path %>

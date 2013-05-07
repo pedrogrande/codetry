@@ -2,3 +2,7 @@
 <% @users.each do |user| %>
   <p>User: <%=link_to user.name, user %></p>
 <% end %>
+
+<% if user_signed_in? %>
+  <%= link_to "create poem", new_user_poem_path(current_user), :class => 'btn btn-success' %>
+<% end %>
