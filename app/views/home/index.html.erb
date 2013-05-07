@@ -6,3 +6,28 @@
 <% if user_signed_in? %>
   <%= link_to "create poem", new_user_poem_path(current_user), :class => 'btn btn-success' %>
 <% end %>
+
+<% @poems.each do |poem| %>
+  <h1><center><%= poem.title %><center></h1>
+  <p style="text-align: center"><small>by <%= link_to poem.user.name, user_path(poem.user) %></small></p>
+  <p style="text-align: center"><a href="#" class="btn"><%= poem.language %></a>
+  <% if user_signed_in? %>
+    <% if current_user == @user %>
+      <%= link_to 'Edit', edit_user_poem_path(poem.user, @poem), :class => 'btn' %>
+    <% end %>
+  <% end %></p>
+  <hr>
+
+  <pre>
+  <code data-language="<%= poem.language %>" class="poem">
+  <%= poem.content %>
+  </code>
+  </pre>
+  <% poem.tag_list.each do |tag| %>
+    <a href="#" class="btn"><%= tag %></a>
+  <% end %>
+  <hr>
+<% end %>
+<div class='apple_pagination'>
+  <%= will_paginate @poems, :page_links => false %>
+</div>
