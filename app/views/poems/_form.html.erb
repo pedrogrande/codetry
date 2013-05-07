@@ -5,6 +5,7 @@
     <%= f.input :title, :label => "Poem title", :input_html => { :class => 'span6' } %>
     <%= f.input :content, :label => "Poem", :input_html => { :class => 'span6' } %>
     <%= f.input :language, :label => "Poem language", :collection => ['generic', 'c', 'c#', 'css', 'd', 'go', 'haskell', 'html' 'java', 'javascript', 'lua', 'php', 'python', 'r', 'ruby', 'scheme', 'shell', 'smalltalk'], :default => 'ruby', :input_html => { :class => 'span6', :rows => 5 } %>
+    <%= f.input :tag_list, :label => 'Tags for poem:', :input_html => { :class => 'span6' } %>
 
     <%= f.button :submit %>
 
