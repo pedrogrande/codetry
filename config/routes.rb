@@ -1,5 +1,7 @@
 Codetry::Application.routes.draw do
   
+  get "contributors/index"
+
   get "usage_policy/index"
 
   authenticated :user do
