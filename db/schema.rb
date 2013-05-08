@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130507032930) do
+ActiveRecord::Schema.define(:version => 20130508043527) do
 
   create_table "poems", :force => true do |t|
     t.string   "title"
@@ -79,6 +79,16 @@ ActiveRecord::Schema.define(:version => 20130507032930) do
     t.integer  "invitation_limit"
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
+    t.text     "about"
+    t.string   "picture_url"
+    t.string   "location_url"
+    t.string   "facebook_url"
+    t.string   "twitter_url"
+    t.string   "website_url"
+    t.string   "followers"
+    t.string   "following"
+    t.integer  "total_upvotes"
+    t.integer  "number_of_poems"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
