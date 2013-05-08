@@ -79,6 +79,9 @@ Codetry Team
 Andrew Kemp, Project Founder "andyajna on GitHub":https://github.com/andyajna.
 Peter Argent, Project Director "pedrogrande on GitHub":https://github.com/pedrogrande.
 David Evans, Coder "davidjhsevans on GitHub":https://github.com/davidjsevans.
+Jurgens Smit, Coder "JurgensSmit on GitHub":https://github.com/JurgensSmit.
+Phillip Simmonds, Coder "pjsim on GitHub":https://github.com/pjsim.
+Shal Dalal Nirwal, Coder "shal23 on GitHub":https://github.com/shal23.
 
 h2. License
 
