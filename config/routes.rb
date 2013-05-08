@@ -3,8 +3,8 @@ Codetry::Application.routes.draw do
   get "contributors/index", :id => "contributors"
   match "contributors" => "contributors#index"
 
-  match 'contact' => 'contact#new', :as => 'contact', :via => :get
-  match 'contact' => 'contact#create', :as => 'contact', :via => :post
+  get "contact/index", :id => "contact"
+  match "contact" => "contact#index"
 
   get "usage_policy/index", :id => "usage_policy"
   match "usage_policy" => "usage_policy#index"
