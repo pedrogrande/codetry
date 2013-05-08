@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(:version => 20130508043527) do
     t.string   "invited_by_type"
     t.text     "about"
     t.string   "picture_url"
-    t.string   "location_url"
+    t.string   "location"
     t.string   "facebook_url"
     t.string   "twitter_url"
     t.string   "website_url"
