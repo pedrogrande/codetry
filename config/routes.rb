@@ -1,5 +1,7 @@
 Codetry::Application.routes.draw do
   
+  get "press/index"
+
   get "contact/index"
 
   get "contributors/index"
