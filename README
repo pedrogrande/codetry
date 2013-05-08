@@ -8,7 +8,7 @@ Phillip Simmonds https://github.com/pjsim Coder
 Sydney Dev Camp class of Autumn 2013
 
 
-Application Name Overview
+Codetry Overview
 ==============================================
 
 Codetry is a platform where coders from all over the world can post their poetry written in any code they like.
@@ -33,7 +33,7 @@ Esoteric release schedule? Document it.
 Accessing the Site
 ----------------------------------------------
 
-Is it running WEBrick, pow, unicorn?
+Runs on Thin web server
 Do you need to use custom subdomains or hosts?
 
 
