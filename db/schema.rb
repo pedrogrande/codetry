@@ -11,32 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130508023505) do
-
-  create_table "impressions", :force => true do |t|
-    t.string   "impressionable_type"
-    t.integer  "impressionable_id"
-    t.integer  "user_id"
-    t.string   "controller_name"
-    t.string   "action_name"
-    t.string   "view_name"
-    t.string   "request_hash"
-    t.string   "ip_address"
-    t.string   "session_hash"
-    t.text     "message"
-    t.text     "referrer"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
-  end
-
-  add_index "impressions", ["controller_name", "action_name", "ip_address"], :name => "controlleraction_ip_index"
-  add_index "impressions", ["controller_name", "action_name", "request_hash"], :name => "controlleraction_request_index"
-  add_index "impressions", ["controller_name", "action_name", "session_hash"], :name => "controlleraction_session_index"
-  add_index "impressions", ["impressionable_type", "impressionable_id", "ip_address"], :name => "poly_ip_index"
-  add_index "impressions", ["impressionable_type", "impressionable_id", "request_hash"], :name => "poly_request_index"
-  add_index "impressions", ["impressionable_type", "impressionable_id", "session_hash"], :name => "poly_session_index"
-  add_index "impressions", ["impressionable_type", "message", "impressionable_id"], :name => "impressionable_type_message_index"
-  add_index "impressions", ["user_id"], :name => "index_impressions_on_user_id"
+ActiveRecord::Schema.define(:version => 20130508043527) do
 
   create_table "poems", :force => true do |t|
     t.string   "title"
@@ -104,6 +79,16 @@ ActiveRecord::Schema.define(:version => 20130508023505) do
     t.integer  "invitation_limit"
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
+    t.text     "about"
+    t.string   "picture"
+    t.string   "location"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "website"
+    t.string   "followers"
+    t.string   "following"
+    t.integer  "total_upvotes"
+    t.integer  "number_of_poems"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
@@ -135,3 +120,4 @@ ActiveRecord::Schema.define(:version => 20130508023505) do
   add_index "votes", ["voter_id", "voter_type"], :name => "index_votes_on_voter_id_and_voter_type"
 
 end
+>>>>>>> upstream/master
