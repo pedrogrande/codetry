@@ -1,5 +1,7 @@
 Codetry::Application.routes.draw do
   
+  get "privacy_policy/index"
+
   get "faq/index"
 
   get "press/index"
