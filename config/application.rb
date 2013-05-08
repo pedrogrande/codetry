@@ -75,6 +75,9 @@ module Codetry
     config.generators do |g|
       g.stylesheets false
       g.javascripts false
+
+    # This is to include the apps/assets/fonts folder in the asset pipeline
+    config.assets.paths << "#{Rails.root}/app/assets/fonts"
     end
   end
 end
