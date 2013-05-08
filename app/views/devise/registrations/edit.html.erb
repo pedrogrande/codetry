@@ -4,6 +4,12 @@
   <%= display_base_errors resource %>
   <%= f.input :name, :autofocus => true %>
   <%= f.input :email, :required => true %>
+  <%= f.input :about %>
+  <%= f.file_field :picture_url %>
+  <%= f.input :location %>
+  <%= f.input :facebook_url %>
+  <%= f.input :twitter_url %>
+  <%= f.input :website_url %>
   <%= f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false %>
   <%= f.input :password_confirmation, :required => false %>
   <%= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>

@@ -1,5 +1,11 @@
 <h3>User</h3>
 <p>User: <%= @user.name %></p>
 <p>Email: <%= @user.email if @user.email %></p>
+<p>About: <%= @user.about if @user.about %></p>
+<p>Picture: <%= @user.picture_url if @user.picture_url %></p>
+<p>Location: <%= @user.location if @user.location %></p>
+<p>Facebook: <%= @user.facebook_url if @user.facebook_url %></p>
+<p>Twitter: <%= @user.twitter_url if @user.twitter_url %></p>
+<p>Website: <%= @user.website_url if @user.website_url %></p>
 
 <%= link_to "User's poems", user_poems_path(@user), :class => 'btn' %>
