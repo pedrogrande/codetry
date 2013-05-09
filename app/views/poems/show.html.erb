@@ -22,3 +22,19 @@
   <a href="#" class="btn"><%= tag %></a>
 <% end %>
 <hr>
+
+<% if @poem.comments %>
+	<% @poem.comments.each do |comment| %>
+		<%= comment.content %>
+	<% end %>
+<% end %>
+
+<%= simple_form_for [@poem.user, @poem, @poem.comments.new] do |f| %>
+  <%= f.error_notification %>
+<%= f.input :content, :label => false, :input_html => { :class => 'span6', :rows => 6 } %> 
+    <!--<%= f.association :user %>-->
+ 
+
+  
+    <%= f.submit 'Comment' %>
+ <% end %>

@@ -10,6 +10,16 @@ class Poem < ActiveRecord::Base
 
   self.per_page = 1
 
+#<<<<<<< HEAD
+  has_many :comments
+  #accepts_nested_attributes_for :comments
+
+  
+  
+#=======
   is_impressionable
 
+#>>>>>>> upstream/master
+
 end
+

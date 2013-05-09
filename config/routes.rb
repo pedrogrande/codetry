@@ -1,4 +1,9 @@
 Codetry::Application.routes.draw do
+#<<<<<<< HEAD
+  
+  
+
+#=======
 
   get "contributors/index", :id => "contributors"
   match "contributors" => "contributors#index"
@@ -17,13 +22,17 @@ Codetry::Application.routes.draw do
 
   get "privacy_policy/index", :id => "privacy_policy"
   match "privacy_policy" => "privacy_policy#index"
+#>>>>>>> upstream/master
 
   authenticated :user do
     root :to => 'home#index'
   end
+
   root :to => "home#index"
   devise_for :users
   resources :users do
-    resources :poems
+    resources :poems do
+    	resources :comments 
+    end
   end
 end
