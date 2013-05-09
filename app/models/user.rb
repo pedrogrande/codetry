@@ -11,5 +11,6 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :about, :picture_url, :location, :facebook_url, :twitter_url, :website_url
 
   has_many :poems
+  has_many :comments
   
 end
