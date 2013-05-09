@@ -14,5 +14,6 @@
 </div>
 
 <%= will_paginate @poems, :page_links => false, :class => 'apple_pagination' %>
-
-<br><center><%= link_to "<i class='icon-edit icon-large'></i> Write a poem".html_safe, new_user_poem_path(current_user), :class => 'btn btn-success btn-large' %></center>
+<% if user_signed_in? %>
+  <br><center><%= link_to "<i class='icon-edit icon-large'></i> Write a poem".html_safe, new_user_poem_path(current_user), :class => 'btn btn-success btn-large' %></center>
+<% end %>
