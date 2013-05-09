@@ -12,4 +12,6 @@ class User < ActiveRecord::Base
 
   has_many :poems
   acts_as_votable
+  acts_as_voter
+
 end

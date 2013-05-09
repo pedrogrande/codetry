@@ -9,7 +9,10 @@
 
 <% @poems.each do |poem| %>
   <h1><center><%= poem.title %><center></h1>
-  <p style="text-align: center"><small>by <%= link_to poem.user.name, user_path(poem.user) %></small></p>
+  <p style="text-align: center"><small>by <%= link_to poem.user.name, user_path(poem.user) %>  
+    <a href="link.html" onclick="return confirm('You sure you want to ban the user??');" class ="btn btn-warning">Ban User</a>
+  </small></p>
+
   <p style="text-align: center"><a href="#" class="btn"><%= poem.language %></a>
   <% if user_signed_in? %>
     <% if current_user == @user %>
