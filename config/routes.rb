@@ -1,5 +1,8 @@
 Codetry::Application.routes.draw do
 
+  get "admin/index", :id => "admin"
+  match "admin" => "admin#index"
+
   get "contributors/index", :id => "contributors"
   match "contributors" => "contributors#index"
 

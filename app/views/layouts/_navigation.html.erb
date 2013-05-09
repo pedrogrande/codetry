@@ -10,7 +10,7 @@
           <li><%= link_to '<i class="icon-cog icon-large"></i>'.html_safe, edit_user_registration_path %></li>
 
           <% if current_user.has_role? :admin %>
-            <li><%= link_to '<i class="icon-cogs icon-large"></i>'.html_safe, users_path %></li>
+            <li><%= link_to '<i class="icon-cogs icon-large"></i>'.html_safe, admin_path %></li>
           <% end %>
 
           <li><%= link_to '<i class="icon-signout icon-large"></i>'.html_safe, destroy_user_session_path, :method=>'delete' %></li>
