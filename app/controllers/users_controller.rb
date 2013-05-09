@@ -31,11 +31,16 @@ class UsersController < ApplicationController
     end
   end
 
-  def ban
-      if user.has_role? :admin
+  def banunban
+    if user.has_role? :admin
       @user = User.find(params[:id])
+      if @user.ban = false
       @user.ban = true
       @user.save
-      redirect_to root_path
+    else
+      @user.ban = true
+      @user.save
       end
+    end
+          redirect_to root_path
   end
