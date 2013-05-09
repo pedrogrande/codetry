@@ -1,7 +1,6 @@
 <div class="row-fluid">
 	<div class="span3">
-		[Profile pic here]
-		<%= image_tag(@user.picture) if @user.picture %>
+		<%= image_tag(@user.picture, :class => 'img-rounded') if @user.picture %>
 		<h3><%= @user.name %></h3>
 		<h4><%= @user.location if @user.location %></h4>
 		<p><%= @user.about if @user.about %></p>

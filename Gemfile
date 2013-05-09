@@ -30,3 +30,4 @@ gem "will_paginate"
 gem 'impressionist'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'carrierwave'

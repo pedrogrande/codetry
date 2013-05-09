@@ -11,6 +11,9 @@ class User < ActiveRecord::Base
   attr_accessible :role_ids, :as => :admin
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :about, :picture, :location, :facebook, :twitter, :website, :provider, :uid
 
+  # Carrierwave avatar uploading
+  mount_uploader :picture, AvatarUploader
+
   has_many :poems
   has_many :comments
   
