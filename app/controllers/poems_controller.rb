@@ -19,16 +19,11 @@ class PoemsController < ApplicationController
   # GET /poems/1.json
   def show
     @poem = @user.poems.find(params[:id])
-#<<<<<<< HEAD
-    
-    #@poem = @comments.poem.build
+    @poem = @comments.poem.build
 
-
-#=======
     if @poem.impressions.count >= 1
       @last_user = User.find(@poem.impressions.last.user_id)
     end
-#>>>>>>> upstream/master
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @poem }
@@ -41,8 +36,6 @@ class PoemsController < ApplicationController
 
 
   def new
-
-  
     @poem = @user.poems.build
 
     respond_to do |format|
@@ -107,11 +100,6 @@ class PoemsController < ApplicationController
   private
 
   def get_user
-    @user = User.find(params[:user_id])
+    @user = User.find(params[:user_id]) # Errors - bug fix needed to view poems
   end
 end
-
-
-
-
-

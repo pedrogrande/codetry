@@ -3,11 +3,34 @@ body { padding-top: 60px; }
 @import "bootstrap-responsive";
 
 .poem {
-  font-size: 30pt;
+  font-size: 20px;
   line-height: 1.5em;
+}
+
+.poem h1 {
+	text-align: center;
+}
+
+.poem h2 {
+	text-align: center;
+}
+
+.poem p {
+	font-size: 16px;
+	text-align: center;
 }
 
 .container {
 	margin: 0 auto;
 	max-width: 860px;
+}
+
+.container-narrow {
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.fit-width {
+	min-width: 90%;
 }

@@ -3,8 +3,23 @@ class Ability
 
   def initialize(user)
     user ||= User.new # guest user (not logged in)
+    alias_action :destroy, :edit, :to => :modify #users should be able to edit and destroy their own posts, so create a custom attribute shortcut for this
+    alias_action :modify, :to => :manage
     if user.has_role? :admin
       can :manage, :all
+    elsif user.has_role? :VIP #ie moderator, called 'VIP' to work with current code
+      can :read, :all
+      can :manage, Poem
+      #can :manage, Comment
+    elsif user.has_role? :user #normal user
+      can :create, Poem
+      #can :create, Comment
+      can :modify, Poem, :user_id => user.id #user can only modify their own poems
+      #can :modify, Comment, :user_id => user.id
+    else #Guest, read-only permissions
+      can :read, Poem
+      #can :read, Comment
+      #add additional models...
     end
     # Define abilities for the passed in user here. For example:
     #

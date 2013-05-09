@@ -37,5 +37,9 @@
 
   <%= f.error_notification %>
 
+<%= f.input :content, :label => false, :input_html => { :class => 'span6', :rows => 6 } %> 
+    <!--<%= f.association :user %>-->
+ 
+
     <%= f.submit 'Comment' %>
  <% end %>
