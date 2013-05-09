@@ -23,3 +23,11 @@
 <br />
 
 <%= link_to 'New Poem', new_user_poem_path %>
+
+
+
+<% p = Array.new %>
+<% @poems.each do |poem| %>
+  <% j = p.push(poem.impressionist_count) %>
+  <%= j %>
+<% end %>

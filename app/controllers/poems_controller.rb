@@ -2,6 +2,8 @@ class PoemsController < ApplicationController
   before_filter :authenticate_user!, :except => :show
   before_filter :get_user
 
+
+  # impressionist :actions=>[:show,:index]
   # GET /poems
   # GET /poems.json
   def index
@@ -17,14 +19,21 @@ class PoemsController < ApplicationController
   # GET /poems/1.json
   def show
     @poem = @user.poems.find(params[:id])
+<<<<<<< HEAD
     
     #@poem = @comments.poem.build
 
 
+=======
+    if @poem.impressions.count >= 1
+      @last_user = User.find(@poem.impressions.last.user_id)
+    end
+>>>>>>> upstream/master
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @poem }
     end
+    impressionist(@poem,message:"wtf is a widget?") #message is optional
   end
 
   # GET /poems/new

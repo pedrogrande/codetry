@@ -23,11 +23,13 @@
   <%= poem.content %>
   </code>
   </pre>
+  
   <% poem.tag_list.each do |tag| %>
     <a href="#" class="btn"><%= tag %></a>
   <% end %>
   <hr>
 <% end %>
+
 <div class='apple_pagination'>
   <%= will_paginate @poems, :page_links => false %>
 </div>
