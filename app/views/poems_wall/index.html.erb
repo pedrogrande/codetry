@@ -1,0 +1,20 @@
+<%= render 'poems_wall/poems_wall_navigation' %>
+
+<!--Everyone's poems are listed here. clicking on a language will hide all other languages. click on 'all' to clear this and show all languages again-->
+
+
+
+<% @poems.each do |poem| %>
+	<p>Title: <%= poem.title %></p>
+	<p>By: <%= poem.user.name %></p>
+	<p>Language: <%= link_to poem.language, poems_wall_path(:language => poem.language) %></p>
+	<p>Content: <%= poem.content %></p>
+	<p>Tags: <%= poem.tags.name unless !poem.tags.name %> </p>
+	<p><%= link_to poem.tag_list %></p>
+	<br>
+	<br>
+<% end %>
+
+
+
+

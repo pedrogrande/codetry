@@ -11,7 +11,8 @@ class Poem < ActiveRecord::Base
   self.per_page = 1
 
   is_impressionable
-
+  acts_as_taggable
+  acts_as_taggable_on :languages
 
 
 
