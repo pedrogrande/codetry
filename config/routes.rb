@@ -1,32 +1,26 @@
 Codetry::Application.routes.draw do
-#<<<<<<< HEAD
-  
-  
-
-#=======
 
   get "admin/index", :id => "admin"
   match "admin" => "admin#index"
 
-get "contributors/index", :id => "contributors"
-match "contributors" => "contributors#index"
+  get "contributors/index", :id => "contributors"
+  match "contributors" => "contributors#index"
 
-match 'contact' => 'contact#new', :as => 'contact', :via => :get
-match 'contact' => 'contact#create', :as => 'contact', :via => :post
+  match 'contact' => 'contact#new', :as => 'contact', :via => :get
+  match 'contact' => 'contact#create', :as => 'contact', :via => :post
 
-get "usage_policy/index", :id => "usage_policy"
-match "usage_policy" => "usage_policy#index"
+  get "usage_policy/index", :id => "usage_policy"
+  match "usage_policy" => "usage_policy#index"
 
-get "press/index", :id => "press"
-match "press" => "press#index"
+  get "press/index", :id => "press"
+  match "press" => "press#index"
 
-get "faq/index", :id => "faq"
-match "faq" => "faq#index"
+  get "faq/index", :id => "faq"
+  match "faq" => "faq#index"
 
-<<<<<<< HEAD
   get "privacy_policy/index", :id => "privacy_policy"
   match "privacy_policy" => "privacy_policy#index"
-#>>>>>>> upstream/master
+
 
   authenticated :user do
     root :to => 'home#index'
@@ -39,17 +33,4 @@ match "faq" => "faq#index"
     	resources :comments 
     end
   end
-=======
-get "privacy_policy/index", :id => "privacy_policy"
-match "privacy_policy" => "privacy_policy#index"
-
-authenticated :user do
-root :to => 'home#index'
-end
-root :to => "home#index"
-devise_for :users
-resources :users do
-resources :poems
-end
->>>>>>> 712b12206a81e67cbc2be5e98820369152f26768
 end
