@@ -14,6 +14,6 @@ class Poem < ActiveRecord::Base
 
   acts_as_votable
 
-
+  default_scope order: 'poems.created_at DESC'
 
 end
