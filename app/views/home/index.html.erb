@@ -9,11 +9,15 @@
 
 <% @poems.each do |poem| %>
 
+
+
+
   <h1><center><%= poem.title %><center></h1>
   <p style="text-align: center"><small>by <%= link_to poem.user.name, user_path(poem.user) %>  
     <%if user_signed_in? %>
     <%if current_user.has_role? :admin %>
     <a href="" onclick="return confirm('You sure you want to ban the user??');" class ="btn btn-warning">Ban User</a>
+
 
     <%end%>
     <%end %>

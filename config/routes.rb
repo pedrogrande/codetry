@@ -26,5 +26,11 @@ Codetry::Application.routes.draw do
   resources :users do
     resources :poems
   end
- 
+
+   resources :users do
+      member do
+          put :banunban
+    end
+  end
+
 end
