@@ -11,6 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20130508064047) do
 
   create_table "comments", :force => true do |t|
@@ -23,6 +24,9 @@ ActiveRecord::Schema.define(:version => 20130508064047) do
 
   add_index "comments", ["poem_id"], :name => "index_comments_on_poem_id"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+=======
+ActiveRecord::Schema.define(:version => 20130508043527) do
+>>>>>>> 712b12206a81e67cbc2be5e98820369152f26768
 
   create_table "impressions", :force => true do |t|
     t.string   "impressionable_type"
