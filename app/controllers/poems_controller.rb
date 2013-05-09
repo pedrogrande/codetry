@@ -17,6 +17,9 @@ class PoemsController < ApplicationController
   # GET /poems/1.json
   def show
     @poem = @user.poems.find(params[:id])
+    
+    #@poem = @comments.poem.build
+
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,7 +29,11 @@ class PoemsController < ApplicationController
 
   # GET /poems/new
   # GET /poems/new.json
+
+
   def new
+
+  
     @poem = @user.poems.build
 
     respond_to do |format|
@@ -94,3 +101,8 @@ class PoemsController < ApplicationController
     @user = User.find(params[:user_id])
   end
 end
+
+
+
+
+

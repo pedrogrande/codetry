@@ -9,4 +9,10 @@ class Poem < ActiveRecord::Base
   acts_as_taggable_on :tags
 
   self.per_page = 1
+
+  has_many :comments
+  #accepts_nested_attributes_for :comments
+
+  
+  
 end
