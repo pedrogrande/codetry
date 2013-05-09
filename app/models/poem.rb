@@ -1,6 +1,6 @@
 class Poem < ActiveRecord::Base
   belongs_to :user
-  attr_accessible :content, :language, :slug, :title, :tag_list
+  attr_accessible :content, :language, :slug, :title, :tag_list, :user
 
   extend FriendlyId
   friendly_id :title, use: :slugged
