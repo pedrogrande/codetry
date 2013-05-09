@@ -20,4 +20,4 @@ class Poem < ActiveRecord::Base
   is_impressionable
 
 >>>>>>> upstream/master
-end
+
