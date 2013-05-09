@@ -19,16 +19,16 @@ class PoemsController < ApplicationController
   # GET /poems/1.json
   def show
     @poem = @user.poems.find(params[:id])
-<<<<<<< HEAD
+#<<<<<<< HEAD
     
     #@poem = @comments.poem.build
 
 
-=======
+#=======
     if @poem.impressions.count >= 1
       @last_user = User.find(@poem.impressions.last.user_id)
     end
->>>>>>> upstream/master
+#>>>>>>> upstream/master
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @poem }

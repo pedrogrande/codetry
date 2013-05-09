@@ -1,9 +1,9 @@
 Codetry::Application.routes.draw do
-<<<<<<< HEAD
+#<<<<<<< HEAD
   
   
 
-=======
+#=======
 
   get "contributors/index", :id => "contributors"
   match "contributors" => "contributors#index"
@@ -22,9 +22,8 @@ Codetry::Application.routes.draw do
 
   get "privacy_policy/index", :id => "privacy_policy"
   match "privacy_policy" => "privacy_policy#index"
->>>>>>> upstream/master
+#>>>>>>> upstream/master
 
-end
   authenticated :user do
     root :to => 'home#index'
   end
@@ -36,3 +35,4 @@ end
     	resources :comments 
     end
   end
+end
