@@ -1,5 +1,9 @@
 <h1><%= @user.name %>'s Poems</h1>
 
+<!--STUFF TO CHANGE ON THIS PAGE-->
+<h4>Sort by: <%= @languageChosen = "ruby" %></h4>
+
+
 <table class="table">
   <tr>
     <th>Title</th>
@@ -9,7 +13,17 @@
     <th></th>
   </tr>
 
+
+<% @langArray = ['generic', 'c', 'c#', 'css', 'd', 'go', 'haskell', 'html' 'java', 'javascript', 'lua', 'php', 'python', 'r', 'ruby', 'scheme', 'shell', 'smalltalk'] %>
+
+
+  <%= select(:poem, :languageChosen, @langArray) %>
+  <%= submit_tag( "Search" ) %>
+
+
+
 <% @poems.each do |poem| %>
+  <% if @languageChosen == poem.language %>
   <tr>
     <td><%= link_to poem.title, user_poem_path(poem.user, poem) %></td>
     <td><%= poem.language %></td>
@@ -17,17 +31,35 @@
     <td><%= poem.active %></td>
     <td><%= link_to 'Delete', user_poem_path(poem.user, poem), method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
+  <% end %>
 <% end %>
 </table>
-
 <br />
 
 <%= link_to 'New Poem', new_user_poem_path %>
+<br />
 
 
 
-<% p = Array.new %>
+<!--THIS WILL SHOW THE MOST VIEWED POEM-->
+<% ic = Array.new %>
+<% ps = Array.new %>
 <% @poems.each do |poem| %>
-  <% j = p.push(poem.impressionist_count) %>
-  <%= j %>
+  <% j = ic.push(poem.impressionist_count) %>
+  <% p = ps.push(poem) %>
+  <% @ic_max_index = j.index(j.max) %>
+  <% @most_viewed_poem = p[@ic_max_index]%>
 <% end %>
+<h4><%= @user.name %>'s most viewed poem is..</h4>
+<p><strong>User</strong><br>
+<%= @most_viewed_poem.user.name %></p>
+<p><strong>Title</strong><br>
+<%= @most_viewed_poem.title %></p>
+<p><strong>Views</strong><br>
+<%= @most_viewed_poem.impressionist_count(:filter=>:ip_address) %></p>
+<p><strong>Content</strong><br>
+<%= @most_viewed_poem.content %></p>
+
+
+
+

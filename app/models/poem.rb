@@ -12,4 +12,8 @@ class Poem < ActiveRecord::Base
 
   is_impressionable
 
+
+
+
+
 end
