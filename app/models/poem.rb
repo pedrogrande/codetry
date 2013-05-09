@@ -1,6 +1,6 @@
 class Poem < ActiveRecord::Base
   belongs_to :user
-  attr_accessible :content, :language, :slug, :title, :tag_list
+  attr_accessible :content, :language, :slug, :title, :tag_list, :user
 
   extend FriendlyId
   friendly_id :title, use: :slugged
@@ -10,10 +10,13 @@ class Poem < ActiveRecord::Base
 
   self.per_page = 1
 
-  is_impressionable
+  has_many :comments
+  #accepts_nested_attributes_for :comments
 
+  is_impressionable
   acts_as_votable
 
   default_scope order: 'poems.created_at DESC'
+
 
 end

@@ -15,13 +15,24 @@ module Codetry
     # don't generate RSpec tests for views and helpers
     config.generators do |g|
       g.test_framework :rspec
-      
-      
-      
-      
+
       g.view_specs false
       g.helper_specs false
     end
+
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :domain               => "Codetry.org",
+    :user_name            => ENV['SMTP_USER_NAME'],
+    :password             => ENV['SMTP_PASSWORD'],
+    :authentication       => :plain,
+    :enable_starttls_auto => true
+}
+
+config.action_mailer.default_url_options = {
+  :host => "Codetry.org"
+}
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
