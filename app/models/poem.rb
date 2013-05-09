@@ -9,4 +9,7 @@ class Poem < ActiveRecord::Base
   acts_as_taggable_on :tags
 
   self.per_page = 1
+
+  is_impressionable
+
 end

@@ -27,3 +27,4 @@ gem "acts_as_votable"
 gem "carrierwave"
 gem "fog"
 gem "will_paginate"
+gem 'impressionist'

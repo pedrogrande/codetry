@@ -13,6 +13,11 @@
 <%= @poem.content %>
 </code>
 </pre>
+<p>View count: <%= @poem.impressionist_count(:filter=>:ip_address) %></p>
+<% if @poem.impressions.count >= 1 %>
+<p>Last viewed on <%= @poem.impressions.last.updated_at.strftime("%e %b %Y") %> by <%= @last_user.name %></p>
+<% end %>
+
 <% @poem.tag_list.each do |tag| %>
   <a href="#" class="btn"><%= tag %></a>
 <% end %>
