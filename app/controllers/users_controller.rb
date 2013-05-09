@@ -31,17 +31,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def banhammer
-    if user_signed_in?
-      if user_has_role? :admin 
-        @vote.value - 1 unless  @vote.value == -1
-        @vote.save
-        respond_to do |format|
-          format.html
-          format.js
-        end
-      end
-      redirect_to root_path
-    end
+
 
 end
