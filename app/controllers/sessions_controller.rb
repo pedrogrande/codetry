@@ -3,7 +3,7 @@ class SessionsController < Devise::SessionsController
 protected
 
   def after_sign_in_path_for(resource)
-    if resource.is_a?(User) && resource.banned?
+    if resource.is_a?(User) && resource.ban?
       sign_out resource
       flash[:error] = "This account has been suspended for violation of...."
       root_path
