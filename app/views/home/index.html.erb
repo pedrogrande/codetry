@@ -23,13 +23,17 @@
   <%= poem.content %>
   </code>
   </pre>
-  
+  <div class="fb-send" style="padding:4px" data-href="http://www.codetry.com" data-font="tahoma"></div>
   <% poem.tag_list.each do |tag| %>
+  <div>
     <a href="#" class="btn"><%= tag %></a>
+</div>
   <% end %>
   <hr>
 <% end %>
 
+
 <div class='apple_pagination'>
   <%= will_paginate @poems, :page_links => false %>
 </div>
+
