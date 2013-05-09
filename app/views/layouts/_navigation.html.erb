@@ -8,6 +8,7 @@
         <% if user_signed_in? %>
           <li><%= link_to current_user.name, current_user %></li>
           <li><%= link_to '<i class="icon-cog icon-large"></i>'.html_safe, edit_user_registration_path %></li>
+          <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
 
           <% if current_user.has_role? :admin %>
             <li><%= link_to '<i class="icon-cogs icon-large"></i>'.html_safe, admin_path %></li>
