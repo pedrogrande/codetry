@@ -1,4 +1,4 @@
-<div class="poem">
+<div class="poem container-narrow">
   <% @poems.each do |poem| %>
     <h1><%= link_to poem.title, poem %></h1>
     <p>by <%= link_to poem.user.name, user_path(poem.user) %> in <%= link_to poem.language, "#" %></p>
