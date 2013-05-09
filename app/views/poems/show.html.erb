@@ -30,11 +30,12 @@
 <% end %>
 
 <%= simple_form_for [@poem.user, @poem, @poem.comments.new] do |f| %>
-  <%= f.error_notification %>
-<%= f.input :content, :label => false, :input_html => { :class => 'span6', :rows => 6 } %> 
-    <!--<%= f.association :user %>-->
- 
 
-  
+
+  <%= f.input :content, :label => false, :input_html => { :class => 'span6', :rows => 6 } %> 
+  <%= f.text_area :content %>
+
+  <%= f.error_notification %>
+
     <%= f.submit 'Comment' %>
  <% end %>
