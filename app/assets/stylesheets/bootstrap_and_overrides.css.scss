@@ -10,16 +10,17 @@ body { padding-top: 60px; }
   margin-right: auto;
 }
 
-.poem h1, h2, p {
+.poem h1 {
+	text-align: center;
+}
+
+.poem h2 {
 	text-align: center;
 }
 
 .poem p {
 	font-size: 16px;
-}
-
-.poem div {
-
+	text-align: center;
 }
 
 .container {
