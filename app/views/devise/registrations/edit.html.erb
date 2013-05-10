@@ -7,7 +7,10 @@
     <%= f.input :name, :autofocus => true %>
     <%= f.input :email, :required => true %>
     <%= f.input :about, :input_html => { :class => 'fit-width', :rows => '8' } %>
+    <label class="control-label" for="user_picture">Profile Picture</label>
+    <%= image_tag(@user.picture, :class => 'img-rounded avatar') if @user.picture? %>
     <%= f.file_field :picture %>
+    <br><br>
     <%= f.input :location %>
     <%= f.input :facebook %>
     <%= f.input :twitter %>
