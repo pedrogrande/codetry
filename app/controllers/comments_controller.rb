@@ -46,8 +46,8 @@ class CommentsController < ApplicationController
   
  def destroy
     @user = User.find(params[:user_id])
-    @post = Post.find(params[:post_id]) #Get the post
-    @comment = @post.comments.find(params[:id]) #Get the associated comment
+    @poem = Poem.find(params[:poem_id]) #Get the post
+    @comment = @poem.comments.find(params[:id]) #Get the associated comment
     @comment.destroy
     redirect_to [@user, @poem]
 
