@@ -30,8 +30,5 @@ gem "will_paginate"
 gem 'impressionist'
 gem 'omniauth'
 gem 'omniauth-facebook'
-<<<<<<< HEAD
-=======
 gem 'carrierwave'
 gem 'acts-as-taggable-on'
->>>>>>> upstream/master
