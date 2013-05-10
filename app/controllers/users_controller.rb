@@ -30,4 +30,20 @@ class UsersController < ApplicationController
       redirect_to users_path, :notice => "Can't delete yourself."
     end
   end
+
+  def banunban
+    @user = User.find(params[:id])
+          if user_signed_in?
+            if current_user.has_role? :admin and !@user.has_role? :admin
+                if !@user.ban
+                  @user.update_attributes(:ban => true) 
+                else
+                  @user.update_attributes(:ban => false) 
+                end
+                  @user.save
+            end
+      end
+     redirect_to :back
+  end
+
 end

@@ -1,22 +1,26 @@
 <div class="poem container-narrow">
   
 <% @poems.each do |poem| %>
-  <h1><%= poem.title %></h1>
-  <p style="text-align: center"><small>by <%= link_to poem.user.name, user_path(poem.user) %></small></p>
-  <p style="text-align: center"><%= link_to poem.language, poems_wall_path(:language => poem.language), :class => 'btn' %>
-  <% if user_signed_in? %>
-    <% if current_user == @user %>
-      <%= link_to 'Edit', edit_user_poem_path(poem.user, @poem), :class => 'btn' %>
-    <% end %>
+  <h1><%= link_to poem.title, poem %></h1>
+    <p>by <%= link_to poem.user.name, user_path(poem.user) %> in <%= link_to poem.language, poems_wall_path(:language => poem.language) %></p>
+
     <pre><code data-language="<%= poem.language %>" class="poem"><%= poem.content %></code></pre></a>
+    
     <% poem.tag_list.each do |tag| %>
-      <%= link_to tag, poems_wall_path(:tag => tag), :class => 'btn' %>
+      <%= link_to tag, poems_wall_path(:tag => tag) %>
     <% end %>
-  <% end %>
+
+    <% if user_signed_in? %>
+      <% if current_user == poem.user %>
+        <div class="pull-right"><%= link_to 'Edit your poem', edit_poem_path(poem.user, @poem), :class => 'btn btn-small' %></div>
+      <% end %>
+    <% end %>
+
 <% end %>
 </div>
 
 <%= will_paginate @poems, :page_links => false, :class => 'apple_pagination' %>
+
 <% if user_signed_in? %>
   <br><center><%= link_to "<i class='icon-edit icon-large'></i> Write a poem".html_safe, new_user_poem_path(current_user), :class => 'btn btn-success btn-large' %></center>
 <% end %>

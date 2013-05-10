@@ -10,21 +10,18 @@ class Poem < ActiveRecord::Base
 
   self.per_page = 1
 
-#<<<<<<< HEAD
   has_many :comments
   #accepts_nested_attributes_for :comments
 
-  
-  
-#=======
   is_impressionable
+
+  acts_as_votable
+
   acts_as_taggable
   acts_as_taggable_on :languages
 
 
+  default_scope order: 'poems.created_at DESC'
 
-
-#>>>>>>> upstream/master
 
 end
-
