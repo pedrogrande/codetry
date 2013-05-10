@@ -2,7 +2,6 @@ class PoemsController < ApplicationController
   before_filter :authenticate_user!, :except => :show
   before_filter :get_user
 
-
   # impressionist :actions=>[:show,:index]
   # GET /poems
   # GET /poems.json
