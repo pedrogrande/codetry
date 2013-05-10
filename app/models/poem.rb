@@ -14,15 +14,12 @@ class Poem < ActiveRecord::Base
   #accepts_nested_attributes_for :comments
 
   is_impressionable
-<<<<<<< HEAD
+
   acts_as_votable
-=======
+
   acts_as_taggable
   acts_as_taggable_on :languages
 
-
-
->>>>>>> upstream/master
 
   default_scope order: 'poems.created_at DESC'
 
