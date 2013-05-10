@@ -17,7 +17,7 @@ class PoemsController < ApplicationController
   # GET /poems/1.json
   def show
     @poem = @user.poems.find(params[:id])
-    @poem = @comments.poem.build
+    @comments = Comment.all
 
     if @poem.impressions.count >= 1
       @last_user = User.find(@poem.impressions.last.user_id)
@@ -98,6 +98,6 @@ class PoemsController < ApplicationController
   private
 
   def get_user
-    @user = User.find(params[:user_id]) # Errors - bug fix needed to view poems
+    @user = User.find(params[:user_id])
   end
 end

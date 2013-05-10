@@ -10,7 +10,7 @@ class Poem < ActiveRecord::Base
 
   self.per_page = 1
 
-  has_many :comments
+  has_many :comments, :dependent => :destroy
   #accepts_nested_attributes_for :comments
 
   is_impressionable

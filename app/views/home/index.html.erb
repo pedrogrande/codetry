@@ -1,7 +1,7 @@
 <div class="poem container-narrow">
   
 <% @poems.each do |poem| %>
-  <h1><%= link_to poem.title, poem %></h1>
+  <h1><%= link_to poem.title, [poem.user, poem] %></h1>
     <p>by <%= link_to poem.user.name, user_path(poem.user) %> in <%= link_to poem.language, poems_wall_path(:language => poem.language) %></p>
 
     <pre><code data-language="<%= poem.language %>" class="poem"><%= poem.content %></code></pre></a>

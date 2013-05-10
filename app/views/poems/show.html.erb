@@ -1,6 +1,6 @@
 <h1><center><%= @poem.title %><center></h1>
 <p style="text-align: center"><small>by <%= link_to @poem.user.name, user_path(@poem.user) %></small></p>
-<p style="text-align: center"><%= link_to @poem.language, poems_wall_path(:language => @poem.language), :class => 'btn' %>
+<p style="text-align: center"><a href="#" class="btn"><%= @poem.language %></a>
 <% if user_signed_in? %>
   <% if current_user == @user %>
     <%= link_to 'Edit', edit_user_poem_path(@poem.user, @poem), :class => 'btn' %>
@@ -19,23 +19,10 @@
 <% end %>
 
 <% @poem.tag_list.each do |tag| %>
-  <%= link_to tag, poems_wall_path(:tag => tag), :class => 'btn' %>
+  <a href="#" class="btn"><%= tag %></a>
 <% end %>
 <hr>
-<<<<<<< HEAD
 
-<% if @poem.comments %>
-	<% @poem.comments.each do |comment| %>
-		<%= comment.content %>
-	<% end %>
-<% end %>
+<%= render @poem.comments %>
 
-<%= simple_form_for [@poem.user, @poem, @poem.comments.new] do |f| %>
-  <%= f.error_notification %>
-<%= f.input :content, :label => false, :input_html => { :class => 'span6', :rows => 6 } %> 
-    <!--<%= f.association :user %>-->
- 
-    <%= f.submit 'Comment' %>
- <% end %>
-=======
->>>>>>> 4e816bc943feed20361187a30a38b76b5871ce2b
+<%= render 'comments/form' %>
