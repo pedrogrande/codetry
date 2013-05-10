@@ -41,5 +41,5 @@ class User < ActiveRecord::Base
   def valid_password?(password)  
   !provider.nil? || super(password)  
   end
-
+  
 end
