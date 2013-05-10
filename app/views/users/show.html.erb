@@ -1,14 +1,13 @@
 <div class="row-fluid">
 	<div class="span3">
 		<%= image_tag(@user.picture, :class => 'img-rounded') if @user.picture? %>
-
 		<h3><%= @user.name %></h3>
 		<h4><%= @user.location if @user.location? %></h4>
 		<p><%= @user.about if @user.about? %></p>
 
-		<p><%= link_to "Facebook", @user.facebook, :target => '_blank' if @user.facebook? %></p>
-		<p><%= link_to "Twitter", @user.twitter, :target => '_blank' if @user.twitter? %></p>
-		<p><%= link_to "Website", @user.website, :target => '_blank' if @user.website? %></p>
+		    <p><%=link_to @user.facebook,("http://" + @user.facebook) %></p>
+		    <p><%=link_to @user.twitter,("http://" + @user.twitter) %></p>
+		   <p><%=link_to @user.website,("http://" + @user.website) %></p> 
 
 		<% if user_signed_in? %>
 			<% if current_user.has_role? :admin %>
