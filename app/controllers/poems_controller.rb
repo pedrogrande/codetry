@@ -2,7 +2,13 @@ class PoemsController < ApplicationController
   before_filter :authenticate_user!, :except => :show
   before_filter :get_user
 
-
+def tagged
+  if params[:tag].present? 
+    @poem = Poem.tagged_with(params[:tag])
+  else 
+    @poem = Poem.all
+  end  
+end
   # impressionist :actions=>[:show,:index]
   # GET /poems
   # GET /poems.json
