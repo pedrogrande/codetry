@@ -6,15 +6,15 @@
     <%= f.input :current_password, :hint => "We need your current password to make any changes", :required => true %>
     <%= f.input :name, :autofocus => true %>
     <%= f.input :email, :required => true %>
-    <%= f.input :about, :input_html => { :class => 'fit-width', :rows => '8' } %>
     <label class="control-label" for="user_picture">Profile Picture</label>
     <%= image_tag(@user.picture, :class => 'img-rounded avatar') if @user.picture? %>
     <%= f.file_field :picture %>
     <br><br>
     <%= f.input :location %>
-    <%= f.input :facebook %>
-    <%= f.input :twitter %>
-    <%= f.input :website %>
+    <%= f.input :about, :input_html => { :class => 'fit-width', :rows => '8' } %>
+    <%= f.input :facebook, :input_html => { :class => 'fit-width' } %>
+    <%= f.input :twitter, :input_html => { :class => 'fit-width' } %>
+    <%= f.input :website, :input_html => { :class => 'fit-width' } %>
     <%= f.input :password, :autocomplete => "off", :label => "New password", :required => false %>
     <%= f.input :password_confirmation, :label => "New password confirmation", :required => false %>
     <%= f.button :submit, 'Update', :class => 'btn-primary' %>
