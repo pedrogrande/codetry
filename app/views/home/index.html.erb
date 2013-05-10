@@ -1,46 +1,19 @@
-<<<<<<< HEAD
 <div class="poem container-narrow">
-  <% @poems.each do |poem| %>
-    <h1><%= link_to poem.title, poem %></h1>
-    <p>by <%= link_to poem.user.name, user_path(poem.user) %> in <%= link_to poem.language, "#" %></p>
-    <% if user_signed_in? %>
-      <% if current_user == @user %>
-        <%= link_to 'Edit', edit_user_poem_path(poem.user, @poem), :class => 'btn' %>
-      <% end %>
-=======
-<h3>Home</h3>
-<% @users.each do |user| %>
-  <p>User: <%=link_to user.name, user %></p>
-<% end %>
-
-<% if user_signed_in? %>
-  <%= link_to "create poem", new_user_poem_path(current_user), :class => 'btn btn-success' %>
-<% end %>
-
+  
 <% @poems.each do |poem| %>
-  <h1><center><%= poem.title %><center></h1>
+  <h1><%= poem.title %></h1>
   <p style="text-align: center"><small>by <%= link_to poem.user.name, user_path(poem.user) %></small></p>
   <p style="text-align: center"><%= link_to poem.language, poems_wall_path(:language => poem.language), :class => 'btn' %>
   <% if user_signed_in? %>
     <% if current_user == @user %>
       <%= link_to 'Edit', edit_user_poem_path(poem.user, @poem), :class => 'btn' %>
->>>>>>> 4e816bc943feed20361187a30a38b76b5871ce2b
     <% end %>
-
-<<<<<<< HEAD
     <pre><code data-language="<%= poem.language %>" class="poem"><%= poem.content %></code></pre></a>
-    
-=======
-  <pre>
-  <code data-language="<%= poem.language %>" class="poem">
-  <%= poem.content %>
-  </code>
-  </pre>
-  
-  <% poem.tag_list.each do |tag| %>
-    <%= link_to tag, poems_wall_path(:tag => tag), :class => 'btn' %>
->>>>>>> 4e816bc943feed20361187a30a38b76b5871ce2b
+    <% poem.tag_list.each do |tag| %>
+      <%= link_to tag, poems_wall_path(:tag => tag), :class => 'btn' %>
+    <% end %>
   <% end %>
+<% end %>
 </div>
 
 <%= will_paginate @poems, :page_links => false, :class => 'apple_pagination' %>
