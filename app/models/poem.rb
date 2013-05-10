@@ -18,6 +18,11 @@ class Poem < ActiveRecord::Base
   
 #=======
   is_impressionable
+  acts_as_taggable
+  acts_as_taggable_on :languages
+
+
+
 
 #>>>>>>> upstream/master
 
