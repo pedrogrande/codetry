@@ -8,7 +8,6 @@ class PoemsController < ApplicationController
   # GET /poems.json
   def index
     @poems = @user.poems.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @poems }

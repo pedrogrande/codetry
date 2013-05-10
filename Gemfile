@@ -31,4 +31,4 @@ gem 'impressionist'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'carrierwave'
-
+gem 'acts-as-taggable-on'
