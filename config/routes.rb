@@ -29,6 +29,11 @@ Codetry::Application.routes.draw do
   root :to => "home#index"
   devise_for :users
   resources :users do
-    resources :poems
+    resources :poems do
+      member do
+        post :upvote
+        post :downvote
+      end
+    end
   end
 end

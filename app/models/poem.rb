@@ -5,16 +5,14 @@ class Poem < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
 
-  acts_as_taggable
-  acts_as_taggable_on :tags
-
+  
   self.per_page = 1
 
   is_impressionable
   acts_as_taggable
-  acts_as_taggable_on :languages
+  acts_as_taggable_on :languages, :tags
 
-
+  acts_as_votable
 
 
 end

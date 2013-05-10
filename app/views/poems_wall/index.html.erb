@@ -1,13 +1,22 @@
 <%= render 'poems_wall/poems_wall_navigation' %>
 
-<!--Everyone's poems are listed here. clicking on a language will hide all other languages. click on 'all' to clear this and show all languages again-->
 
+<!--Everyone's poems are listed here. clicking on a language will hide all other languages. click on 'all' to clear this and show all languages again-->
+<!--STUFF TO BE DONE -->
 <!--Maybe use javascript less/more text button to make the wall more readable if poems get too pig -->
 
 <!-- Add tag cloud -->
 
+
+
+
+
+<%= render 'poems_wall/most_popular_poem' %>
+
+<%= render 'poems_wall/most_viewed_poem' %>
+
 <% @poems.each do |poem| %>
-	<p>Title: <%= poem.title %></p>
+	<p>Title: <%= link_to poem.title, user_poem_path(poem.user, poem) %></p>
 	<p>By: <%= poem.user.name %></p>
 	<p>Language: <%= link_to poem.language, poems_wall_path(:language => poem.language) %></p>
 	<p>Content: <%= poem.content %></p>
@@ -17,11 +26,17 @@
   		<%= link_to tag, poems_wall_path(:tag => tag) %></a>
   		<% end %>
   		</p>
+  	<% end %>
+  	<% if poem.likes.size > 0 %>
+  		<p>Likes: <%= poem.likes.size %></p>
 	<% end %>
 	<br>
 	<br>
 <% end %>
 
 
-
-
+<% if Poem.tag_counts.length > 0 %>
+	<% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+	  <%= link_to tag.name, poems_wall_path(:id => tag.name) , :class => css_class %>
+	<% end %>
+<% end %>

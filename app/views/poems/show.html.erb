@@ -22,3 +22,10 @@
   <%= link_to tag, poems_wall_path(:tag => tag), :class => 'btn' %>
 <% end %>
 <hr>
+
+<% if user_signed_in? && !current_user.liked?(@poem) %>
+<%= link_to 'Like', upvote_user_poem_path(@poem.user, @poem), :method => :post, :class => 'btn' %><br>
+<% else %>
+<%= link_to 'Unlike', downvote_user_poem_path(@poem.user, @poem), :method => :post, :class => 'btn' %><br>
+<% end %>
+Likes: <%= @poem.likes.size %>

@@ -2,6 +2,21 @@ class PoemsController < ApplicationController
   before_filter :authenticate_user!, :except => :show
   before_filter :get_user
 
+  def tag_cloud
+    @tags = Poem.tag_counts_on(:tags)
+  end
+  
+  def upvote
+    @poems = Poem.find(params[:id])
+    @poems.liked_by current_user
+    redirect_to :back
+  end
+
+  def downvote
+    @poems = Poem.find(params[:id])
+    @poems.downvote_from current_user
+    redirect_to :back
+  end
   # impressionist :actions=>[:show,:index]
   # GET /poems
   # GET /poems.json

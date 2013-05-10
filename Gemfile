@@ -28,4 +28,3 @@ gem "carrierwave"
 gem "fog"
 gem "will_paginate"
 gem 'impressionist'
-gem 'acts-as-taggable-on'
