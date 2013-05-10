@@ -21,6 +21,8 @@ Codetry::Application.routes.draw do
   get "privacy_policy/index", :id => "privacy_policy"
   match "privacy_policy" => "privacy_policy#index"
 
+  get "poems_wall/index", :id => "poems_wall"
+  match "poems_wall" => "poems_wall#index"
 
   authenticated :user do
     root :to => 'home#index'

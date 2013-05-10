@@ -1,4 +1,4 @@
-<div class="poem">
+<div class="poem container-narrow">
   <% @poems.each do |poem| %>
     <h1><%= link_to poem.title, poem %></h1>
     <p>by <%= link_to poem.user.name, user_path(poem.user) %> in <%= link_to poem.language, "#" %></p>
@@ -6,7 +6,7 @@
       <% if current_user == @user %>
         <%= link_to 'Edit', edit_user_poem_path(poem.user, @poem), :class => 'btn' %>
       <% end %>
-    <% end %></p>
+    <% end %>
 
     <pre><code data-language="<%= poem.language %>" class="poem"><%= poem.content %></code></pre></a>
     <%if user_signed_in? %>
@@ -18,5 +18,11 @@
 </div>
 
 <%= will_paginate @poems, :page_links => false, :class => 'apple_pagination' %>
+<<<<<<< HEAD
 
 <br><center><%= link_to "<i class='icon-edit icon-large'></i> Write a poem".html_safe, new_user_poem_path(current_user), :class => 'btn btn-success btn-large' %></center>
+=======
+<% if user_signed_in? %>
+  <br><center><%= link_to "<i class='icon-edit icon-large'></i> Write a poem".html_safe, new_user_poem_path(current_user), :class => 'btn btn-success btn-large' %></center>
+<% end %>
+>>>>>>> upstream/master
