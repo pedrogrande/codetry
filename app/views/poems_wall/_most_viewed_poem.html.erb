@@ -1,0 +1,32 @@
+<% ic = Array.new %>
+<% ps = Array.new %>
+<% @most_viewed_poem = [] %>
+
+<% @poems.each do |poem| %>
+  <% if poem.impressionist_count > 0 %>
+    <% j = ic.push(poem.impressionist_count) %>
+    <% p = ps.push(poem) %>
+    <% @ic_max_index = j.index(j.max) %>
+    <% @most_viewed_poem = p[@ic_max_index]%>
+  <% end %>
+<% end %>
+
+<% if @most_viewed_poem != [] %>
+  <hr>
+  <hr>
+  <h4>Most viewed poem is..</h4>
+    <p><strong>User</strong><br>
+    <%= @most_viewed_poem.user.name %></p>
+    <p><strong>Title</strong><br>
+    <%= @most_viewed_poem.title %></p>
+    <p><strong>Language</strong><br>
+    <%= @most_viewed_poem.language %></p>
+    <p><strong>Views</strong><br>
+    <%= @most_viewed_poem.impressionist_count(:filter=>:ip_address) %></p>
+    <p><strong>Likes</strong><br>
+    <%= @most_viewed_poem.likes.size %></p>
+    <p><strong>Content</strong><br>
+    <%= @most_viewed_poem.content %></p>
+  <hr>
+  <hr>
+<% end %>
