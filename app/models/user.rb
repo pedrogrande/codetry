@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable 
-  devise :omniauthable, :omniauth_providers => [:facebook]
 
+  devise :omniauthable
   # Setup accessible (or protected) attributes for your model
   attr_accessible :role_ids, :as => :admin
 
