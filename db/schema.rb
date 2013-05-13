@@ -128,6 +128,11 @@ ActiveRecord::Schema.define(:version => 20130513053203) do
     t.string   "provider"
     t.string   "uid"
     t.boolean  "ban",                                  :default => false
+    t.string   "nickname"
+    t.string   "image"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "link"
     t.string   "slug"
   end
 
