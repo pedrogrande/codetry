@@ -1,6 +1,44 @@
 @import "bootstrap";
-body { padding-top: 60px; }
 @import "bootstrap-responsive";
+
+/* STICKY FOOTER STYLES */
+      html,
+      body {
+        height: 100%;
+        /* The html and body elements cannot have any padding or margin. */
+      }
+
+      /* Wrapper for page content to push down footer */
+      #wrap {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        /* Negative indent footer by it's height */
+        margin: 0 auto -60px;
+      }
+
+      /* Set the fixed height of the footer here */
+      #push,
+      #footer {
+        height: auto;
+      }
+
+      /* Lastly, apply responsive CSS fixes as necessary */
+      @media (max-width: 767px) {
+        #footer {
+          margin-left: -20px;
+          margin-right: -20px;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }
+/* END STICKY FOOTER STYLES */
+
+body { 
+	padding-top: 60px; 
+	background-image: url(retina_wood.png);
+	background-repeat: repeat;
+}
 
 .poem {
   font-size: 20px;
@@ -38,4 +76,50 @@ body { padding-top: 60px; }
 .avatar {
 	max-height: 200px;
 	max-width: 200px;
+}
+
+.page_content {
+	border-radius: 15px;
+	-moz-border-radius: 15px;
+	padding:30px 20px;
+}
+
+.footer_content {
+	border-top-left-radius: 15px;
+	-moz-border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	-moz-border-top-right-radius: 15px;
+	padding:30px 20px;
+}
+.width_100 {
+	width:100%;
+}
+.width_820px {
+	width:820px;
+}
+
+.background_color_white {
+	background-color: white;
+}
+
+.margin_top_30px {
+	margin-top:30px;
+}
+
+.drop_shadow {
+	-moz-box-shadow: 0 0 30px 2px #999;
+	-webkit-box-shadow: 0 0 30px 2px #999;
+}
+
+.background_image_paper {
+	background-image: url(linedpaper.png);
+	background-repeat: repeat;
+}
+
+.height_100 {
+	height:100%;
+}
+
+.margin_top_100 {
+	margin-top:100%;
 }
