@@ -5,23 +5,30 @@
 <!--Maybe use javascript less/more text button to make the wall more readable if poems get too pig -->
 
 <!-- Add tag cloud -->
+<h2>Latest Poems</h2>
 
-<% @poems.each do |poem| %>
-	<p>Title: <%= poem.title %></p>
-	<p>By: <%= poem.user.name %></p>
-	<p>Language: <%= link_to poem.language, poems_wall_path(:language => poem.language) %></p>
-	<p>Content: <%= poem.content %></p>
-	<% if poem.tag_list != [] %>
-		<p>Tags:  
-		<% poem.tag_list.each do |tag| %>
-  		<%= link_to tag, poems_wall_path(:tag => tag) %></a>
-  		<% end %>
-  		</p>
+<ul class="zipper" id="main">
+	<% @poems.each do |poem| %>
+		<li>
+			<p><h4><%= link_to poem.title, [poem.user, poem] %></h4></p>
+			<p>By: <%= poem.user.name %></p>
+			<p>Content: <%= truncate(poem.content) %></p>
+			<% if poem.tag_list != [] %>
+				<p>Tags:  
+				<% poem.tag_list.each do |tag| %>
+		  		<%= link_to tag, poems_wall_path(:tag => tag) %></a>
+		  		<% end %>
+		  		</p>
+			<% end %>
+			<p>Language: <%= link_to poem.language, poems_wall_path(:language => poem.language) %></p>
+			<p><small><%=poem.created_at.strftime("Submitted on %A, %e %b %Y") %></small></p>
+			<%= link_to 'Read & Comment', [poem.user, poem], :class => 'btn btn-primary' %>
+			<br>
+		</li>
 	<% end %>
-	<br>
-	<br>
-<% end %>
+</ul>
 
 
+<script>stroll.bind( '#main ul' );</script>
 
 

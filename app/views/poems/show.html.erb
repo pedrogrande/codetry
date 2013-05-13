@@ -22,7 +22,9 @@
   <a href="#" class="btn"><%= tag %></a>
 <% end %>
 <hr>
-
+<div id='comments'>
 <%= render @poem.comments %>
+</div>
 
 <%= render 'comments/form' %>
+
