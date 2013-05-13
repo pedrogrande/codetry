@@ -20,7 +20,11 @@
       /* Set the fixed height of the footer here */
       #push,
       #footer {
-        height: auto;
+        height: 60px;
+      }
+      #footer {
+        /*background-color: #f5f5f5;*/
+        z-index:500;
       }
 
       /* Lastly, apply responsive CSS fixes as necessary */
@@ -35,9 +39,11 @@
 /* END STICKY FOOTER STYLES */
 
 body { 
-	padding-top: 60px; 
+	/*padding-top: 60px;*/ 
 	background-image: url(retina_wood.png);
 	background-repeat: repeat;
+
+	font-family: 'Special Elite', 'Roboto Slab', 'Noto Serif', serif, times;
 }
 
 .poem {
@@ -47,6 +53,10 @@ body {
 
 .poem h1 {
 	text-align: center;
+}
+
+.poem h1 a {
+	color: #C00000;
 }
 
 .poem h2 {
@@ -123,3 +133,23 @@ body {
 .margin_top_100 {
 	margin-top:100%;
 }
+
+#blank_spacer.home_index {
+	width:100%;
+	height:50px;
+}
+
+.navbar-inverse .navbar-inner {
+	background-image:none;
+	background-color:rgba(0,0,0,0.75);
+}
+
+.navbar-inverse .brand {
+	color:white;
+}
+
+.navbar-inverse .brand:hover {
+	color:#FFCC33;
+}
+
+

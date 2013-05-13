@@ -8,6 +8,7 @@
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
+    <link href='http://fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic,700italic|Roboto+Slab:400,300,700|Special+Elite' rel='stylesheet' type='text/css'>
   </head>
   <body class="<%= controller_name %> <%= action_name %> height_100" >
     <!-- Part 1: Wrap all page content here -->
@@ -23,10 +24,13 @@
       </div>
     </div>
   </div>
-    <footer style="margin-top:100px;">
-      <div class="container">
+    <div id="blank_spacer" class="<%=controller_name%>_<%=action_name%>"></div>
+    <footer>
+      <div id="footer">
+        <div class="container">
         <div class="background_color_white footer_content width_820px background_image_paper">
           <%= render 'layouts/footer' %>
+        </div>
         </div>
       </div>
     </footer>  

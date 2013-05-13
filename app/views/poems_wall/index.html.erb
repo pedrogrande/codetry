@@ -9,6 +9,12 @@
 <% @poems.each do |poem| %>
 	<p>Title: <%= poem.title %></p>
 	<p>By: <%= poem.user.name %></p>
+        <p>FB Data<%= poem.user.image %></p>
+          <p><%= poem.user.first_name %></p>
+      
+          <p><%= poem.user.last_name %></p>
+          <p><%= poem.user.link %></p>
+
 	<p>Language: <%= link_to poem.language, poems_wall_path(:language => poem.language) %></p>
 	<p>Content: <%= poem.content %></p>
 	<% if poem.tag_list != [] %>
