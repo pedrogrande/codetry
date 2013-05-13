@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130509041822) do
+ActiveRecord::Schema.define(:version => 20130513052012) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -125,9 +125,14 @@ ActiveRecord::Schema.define(:version => 20130509041822) do
     t.string   "following"
     t.integer  "total_upvotes"
     t.integer  "number_of_poems"
-    t.boolean  "ban",                                  :default => false
     t.string   "provider"
     t.string   "uid"
+    t.boolean  "ban",                                  :default => false
+    t.string   "nickname"
+    t.string   "image"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "link"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
