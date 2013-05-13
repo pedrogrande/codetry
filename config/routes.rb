@@ -37,4 +37,11 @@ Codetry::Application.routes.draw do
     	resources :comments 
     end
   end
+
+   resources :users do
+      member do
+          put :banunban
+    end
+  end
+
 end

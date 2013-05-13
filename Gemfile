@@ -23,7 +23,7 @@ gem "binding_of_caller", ">= 0.7.1", :group => :development, :platforms => [:mri
 gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
 gem "acts-as-taggable-on"
 gem "friendly_id"
-gem "acts_as_votable"
+gem "acts_as_votable" , '~> 0.5.0'
 gem "carrierwave"
 gem "fog"
 gem "will_paginate"

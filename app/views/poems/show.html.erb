@@ -23,12 +23,9 @@
 <% end %>
 <hr>
 
-<% if @poem.comments %>
-	<% @poem.comments.each do |comment| %>
-		<%= comment.content %>
-	<% end %>
-<% end %>
+<%= render @poem.comments %>
 
+<<<<<<< HEAD
 <%= simple_form_for [@poem.user, @poem, @poem.comments.new] do |f| %>
 
 
@@ -43,3 +40,6 @@
 
     <%= f.submit 'Comment' %>
  <% end %>
+=======
+<%= render 'comments/form' %>
+>>>>>>> upstream/master

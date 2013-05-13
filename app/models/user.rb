@@ -9,13 +9,13 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :role_ids, :as => :admin
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :about, :picture_url, :location, :facebook_url, :twitter_url, :website_url
-  attr_accessible :provider, :uid
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :about, :picture, :location, :facebook, :twitter, :website, :provider, :uid
+
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :about, :picture, :location, :facebook, :twitter, :website, :provider, :uid, :ban
+
 
   # Carrierwave avatar uploading
   mount_uploader :picture, AvatarUploader
->>>>>>> upstream/master
+
 
   has_many :poems
   has_many :comments
@@ -40,4 +40,9 @@ class User < ActiveRecord::Base
       end
     end
   end
+
+  def valid_password?(password)  
+  !provider.nil? || super(password)  
+  end
+  
 end
