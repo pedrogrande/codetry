@@ -30,12 +30,8 @@
   <a href="#" class="btn"><%= tag %></a>
 <% end %>
 <hr>
-
+<div id='comments'>
 <%= render @poem.comments %>
+</div>
 
 <%= render 'comments/form' %>
-<div id="comments">
-
-	<%= render @comments %>
-
-</div>
