@@ -43,7 +43,7 @@ class UsersController < ApplicationController
                   @user.save
             end
       end
-     redirect_to root_path
+     redirect_to :back
   end
 
 end

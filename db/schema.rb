@@ -13,6 +13,7 @@
 
 ActiveRecord::Schema.define(:version => 20130513052012) do
 
+
   create_table "comments", :force => true do |t|
     t.text     "content"
     t.integer  "user_id"
@@ -128,11 +129,14 @@ ActiveRecord::Schema.define(:version => 20130513052012) do
     t.string   "provider"
     t.string   "uid"
     t.boolean  "ban",                                  :default => false
+<<<<<<< HEAD
     t.string   "nickname"
     t.string   "image"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "link"
+=======
+>>>>>>> upstream/master
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

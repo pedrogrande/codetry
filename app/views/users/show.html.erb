@@ -1,20 +1,23 @@
 <div class="row-fluid">
 	<div class="span3">
 		<%= image_tag(@user.picture, :class => 'img-rounded') if @user.picture? %>
-
 		<h3><%= @user.name %></h3>
 		<h4><%= @user.location if @user.location? %></h4>
 		<p><%= @user.about if @user.about? %></p>
+		
+		<p><%= link_to "Facebook", url_with_protocol(@user.facebook), :target => '_blank' if @user.facebook? %></p>
+		<p><%= link_to "Twitter", url_with_protocol(@user.twitter), :target => '_blank' if @user.twitter? %></p>
+		<p><%= link_to "Website", url_with_protocol(@user.website), :target => '_blank' if @user.website? %></p>
 
-<<<<<<< HEAD
-<%= link_to "User's poems", user_poems_path(@user), :class => 'btn' %>
-<% if current_user.has_role? :admin %>
-<%= link_to "BanUnban Button",  banunban_user_path(@user) ,:method => :put %>
-<%end %>
-=======
-		<p><%= link_to "Facebook", @user.facebook, :target => '_blank' if @user.facebook? %></p>
-		<p><%= link_to "Twitter", @user.twitter, :target => '_blank' if @user.twitter? %></p>
-		<p><%= link_to "Website", @user.website, :target => '_blank' if @user.website? %></p>
+		<% if user_signed_in? %>
+			<% if current_user.has_role? :admin %>
+				<% unless @user.ban? %>
+					<%= link_to "Ban User",  banunban_user_path(@user), :method => :put, :class => 'btn btn-warning btn-mini' %>
+				<% else %>
+					<%= link_to "Unban User",  banunban_user_path(@user), :method => :put, :class => 'btn btn-success btn-mini' %>
+				<% end %>
+			<% end %>
+		<% end %>
 	</div>
 	<div class="span9">
 		<div class="poem">
@@ -35,4 +38,3 @@
 		</div>
 	</div>
 </div>
->>>>>>> upstream/master

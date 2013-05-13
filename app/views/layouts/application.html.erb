@@ -9,25 +9,26 @@
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
   </head>
-  <body class="<%= controller_name %> <%= action_name %>">
+  <body class="<%= controller_name %> <%= action_name %> height_100" >
+    <!-- Part 1: Wrap all page content here -->
+  <div id="wrap">
     <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=548108761906472";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
     <%= render 'layouts/navigation' %>
     <div id="main" role="main">
       <div class="container">
-        <%= render 'layouts/messages' %>
-        <%= yield %>
-      <hr>
-      <footer>
-        <%= render 'layouts/footer' %>
-      </footer>  
+        <div class="page_content background_color_white background_image_paper margin_top_30px width_820px drop_shadow">
+          <%= render 'layouts/messages' %>
+          <%= yield %>
+        </div>
       </div>
     </div>
+  </div>
+    <footer style="margin-top:100px;">
+      <div class="container">
+        <div class="background_color_white footer_content width_820px background_image_paper">
+          <%= render 'layouts/footer' %>
+        </div>
+      </div>
+    </footer>  
   </body>
 </html>

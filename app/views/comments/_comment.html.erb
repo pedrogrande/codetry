@@ -1,0 +1,8 @@
+<b><%= comment.user.name %> said:</b><br />
+<p><%= comment.content %></p><br />
+<p><%=comment.created_at.strftime(" on %A, %e %b %Y") %></p>
+
+<% if can? :destroy, comment %>
+<%= link_to 'delete', [@poem.user, @poem, comment], :confirm => 'Are you sure', :method => :delete %>
+<% end %>
+<hr>
