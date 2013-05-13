@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20130513053203) do
-=======
-ActiveRecord::Schema.define(:version => 20130509051033) do
->>>>>>> 9ceabb839e03b91ea8d714f4a199ef5e0a844edc
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -132,25 +128,19 @@ ActiveRecord::Schema.define(:version => 20130509051033) do
     t.string   "provider"
     t.string   "uid"
     t.boolean  "ban",                                  :default => false
-<<<<<<< HEAD
     t.string   "nickname"
     t.string   "image"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "link"
     t.string   "slug"
-=======
->>>>>>> 9ceabb839e03b91ea8d714f4a199ef5e0a844edc
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["invitation_token"], :name => "index_users_on_invitation_token", :unique => true
   add_index "users", ["invited_by_id"], :name => "index_users_on_invited_by_id"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
-<<<<<<< HEAD
   add_index "users", ["slug"], :name => "index_users_on_slug", :unique => true
-=======
->>>>>>> 9ceabb839e03b91ea8d714f4a199ef5e0a844edc
 
   create_table "users_roles", :id => false, :force => true do |t|
     t.integer "user_id"
