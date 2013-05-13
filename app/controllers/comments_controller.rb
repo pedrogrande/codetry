@@ -16,6 +16,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
+        format.js
         format.html { redirect_to user_poem_path(@poem.user, @poem), notice: 'Comment was successfully created.' }
         format.json { render json: @comment, status: :created, location: @comment }
       else
@@ -55,9 +56,9 @@ class CommentsController < ApplicationController
    # @comment = Comment.find(params[:id])
    # @comment.destroy
 
-    #respond_to do |format|
-     # format.html { redirect_to comments_url }
-     # format.json { head :no_content }
-    #end
+    respond_to do |format|
+      format.html { redirect_to comments_url }
+      format.json { head :no_content }
+    end
   end
 end
