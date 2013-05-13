@@ -1,15 +1,8 @@
-<%= render 'poems_wall/poems_wall_navigation' %>
-
-
 <!--Everyone's poems are listed here. clicking on a language will hide all other languages. click on 'all' to clear this and show all languages again-->
 <!--STUFF TO BE DONE -->
 <!--Maybe use javascript less/more text button to make the wall more readable if poems get too pig -->
 
-<!-- Add tag cloud -->
-
-
-
-
+<%= render 'poems_wall/poems_wall_navigation' %>
 
 <%= render 'poems_wall/most_popular_poem' %>
 
@@ -35,8 +28,33 @@
 <% end %>
 
 
+
+<h4>Tag Cloud</h4>
+
+<% tagsArray = Array.new %>
 <% if Poem.tag_counts.length > 0 %>
 	<% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
-	  <%= link_to tag.name, poems_wall_path(:id => tag.name) , :class => css_class %>
+	  <%= link_to tag.name, poems_wall_path(:tag => tag.name), :class => css_class %>
+	  <% @ta = tagsArray.push(tag) %>
 	<% end %>
 <% end %>
+
+
+
+    <script type="text/javascript">
+
+
+
+
+      var word_array = [];
+      <% @ta.each_with_index do |t, index| %>
+        word_array.push({text: "<%= @ta[index].name %>", weight: <%= @ta[index].count %>, link: "<%= poems_wall_path(:tag => @ta[index].name) %>" })
+      <% end %>
+
+      $(function() {
+
+        $("#codetry_tag_cloud").jQCloud(word_array);
+      });
+    </script>
+
+<div id="codetry_tag_cloud" style="width: 550px; height: 350px;"></div>
