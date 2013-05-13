@@ -7,9 +7,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable 
   devise :omniauthable, :omniauth_providers => [:facebook]
 
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   # Setup accessible (or protected) attributes for your model
   attr_accessible :role_ids, :as => :admin
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :about, :picture, :location, :facebook, :twitter, :website, :provider, :uid, :ban
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :about, :picture, :location, :facebook, :twitter, :website, :provider, :uid, :ban, :slug
 
   # Carrierwave avatar uploading
   mount_uploader :picture, AvatarUploader
