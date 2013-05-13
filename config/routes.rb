@@ -1,12 +1,13 @@
 Codetry::Application.routes.draw do
 
-  
+  get "admin/index", :id => "admin"
+  match "admin" => "admin#index"
 
   get "contributors/index", :id => "contributors"
   match "contributors" => "contributors#index"
 
-  get "contact/index", :id => "contact"
-  match "contact" => "contact#index"
+  match 'contact' => 'contact#new', :as => 'contact', :via => :get
+  match 'contact' => 'contact#create', :as => 'contact', :via => :post
 
   get "usage_policy/index", :id => "usage_policy"
   match "usage_policy" => "usage_policy#index"
@@ -26,8 +27,11 @@ Codetry::Application.routes.draw do
   authenticated :user do
     root :to => 'home#index'
   end
+
   root :to => "home#index"
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  
+  resources :poems
   resources :users do
     resources :poems do
       member do
@@ -36,4 +40,15 @@ Codetry::Application.routes.draw do
       end
     end
   end
+end
+    	resources :comments 
+    end
+  end
+
+   resources :users do
+      member do
+          put :banunban
+    end
+  end
+
 end

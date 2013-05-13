@@ -1,0 +1,32 @@
+<h2><i class="icon-cogs"></i> Admin</h2>
+<h3><%= link_to "Users", users_path %></h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Registered</th>
+      <th>Role</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= link_to user.name, user %></td>
+      <td><%= user.email %></td>
+      <td><%= user.created_at.to_date %></td>
+      <td><%= user.roles.first.name.titleize unless user.roles.first.nil? %></td>
+      <td>
+        <a data-toggle="modal" href="#role-options-<%= user.id %>" class="btn btn-mini btn-warning" type="button">Change role</a>
+        <%= render user %>
+      <% unless user.ban? %>
+          <%= link_to "Ban User",  banunban_user_path(user), :method => :put, :class => 'btn btn-warning btn-mini' %>
+        <% else %>
+          <%= link_to "Unban User",  banunban_user_path(user), :method => :put, :class => 'btn btn-success btn-mini' %>
+        <% end %><%= link_to("Delete user", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-mini btn-danger') unless user == current_user %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<p><%= link_to "See all users...", users_path %></p>

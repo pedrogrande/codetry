@@ -1,6 +1,6 @@
 <h1><center><%= @poem.title %><center></h1>
 <p style="text-align: center"><small>by <%= link_to @poem.user.name, user_path(@poem.user) %></small></p>
-<p style="text-align: center"><%= link_to @poem.language, poems_wall_path(:language => @poem.language), :class => 'btn' %>
+<p style="text-align: center"><a href="#" class="btn"><%= @poem.language %></a>
 <% if user_signed_in? %>
   <% if current_user == @user %>
     <%= link_to 'Edit', edit_user_poem_path(@poem.user, @poem), :class => 'btn' %>
@@ -19,7 +19,7 @@
 <% end %>
 
 <% @poem.tag_list.each do |tag| %>
-  <%= link_to tag, poems_wall_path(:tag => tag), :class => 'btn' %>
+  <a href="#" class="btn"><%= tag %></a>
 <% end %>
 <hr>
 
@@ -29,3 +29,9 @@
 <%= link_to 'Unlike', downvote_user_poem_path(@poem.user, @poem), :method => :post, :class => 'btn' %><br>
 <% end %>
 Likes: <%= @poem.likes.size %>
+
+
+<%= render @poem.comments %>
+
+<%= render 'comments/form' %>
+
