@@ -12,8 +12,6 @@
 <% end %>
 
 <% if @most_viewed_poem != [] %>
-  <hr>
-  <hr>
   <h4>Most viewed poem is..</h4>
     <p><strong>User</strong><br>
     <%= link_to @most_viewed_poem.user.name, @most_viewed_poem.user %></p>
@@ -34,6 +32,4 @@
       <% end %>
       </p>
     <% end %>
-  <hr>
-  <hr>
 <% end %>

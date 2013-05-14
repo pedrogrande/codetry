@@ -11,8 +11,9 @@
   <% end %>
 <% end %>
 
+<br>
 <% if @most_popular_poem != [] %>
-  <h4>Most popular poem is..</h4>
+  <h4><%= @user.name %>'s most popular poem is..</h4>
     <p><strong>User</strong><br>
     <%= link_to @most_popular_poem.user.name, @most_popular_poem.user %></p>
     <p><strong>Title</strong><br>
