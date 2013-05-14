@@ -17,7 +17,7 @@ class Ability
       can :modify, Poem, :user_id => user.id #user can only modify their own poems
       #can :modify, Comment, :user_id => user.id
     elsif user.has_role? :banned
-      can :read, Poem
+      #can :read, Poem
       #can :read, Comment
     else #Guest, read-only permissions
       can :read, Poem

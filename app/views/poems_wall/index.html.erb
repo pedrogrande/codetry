@@ -10,7 +10,7 @@
 
 <% @poems.each do |poem| %>
 	<p>Title: <%= link_to poem.title, user_poem_path(poem.user, poem) %></p>
-	<p>By: <%= poem.user.name %></p>
+	<p>By: <%= link_to poem.user.name, poem.user %></p>
 	<p>Language: <%= link_to poem.language, poems_wall_path(:language => poem.language) %></p>
 	<p>Content: <%= poem.content %></p>
 	<% if poem.tag_list != [] %>

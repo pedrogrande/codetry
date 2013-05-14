@@ -10,7 +10,4 @@ class PoemsWallController < ApplicationController
       @poems = Poem.all
     end
   end
-  def tag_cloud
-    @tags = Poem.tag_counts_on(:tags)
-  end
 end
