@@ -3,7 +3,7 @@
     <%= f.input :title, :label => "Title" %>
     <%= f.input :content, :label => "Poem", :input_html => { :class => 'fit-width', :rows => 10 } %>
     <%= f.input :language, :label => "Poem language", :collection => [ 'ruby', 'generic', 'c', 'c#', 'css', 'd', 'go', 'haskell', 'html', 'java', 'javascript', 'lua', 'php', 'python', 'r', 'ruby', 'scheme', 'shell', 'smalltalk' ], :default => "ruby" %>
-    <%= f.input :tag_list, :label => 'Tags for poem:' %>
+    <%= f.input :tag_list, :label => 'Tags for poem (comma separated):' %>
 
     <%= f.button :submit, :class => 'btn btn-success' %>
 

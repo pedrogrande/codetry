@@ -25,10 +25,12 @@
 
 <a href="https://twitter.com/share" class="twitter-share-button" data-related="jasoncosta" data-lang="en" data-size="small" data-count="none">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
-<% @poem.tag_list.each do |tag| %>
-  <a href="#" class="btn"><%= tag %></a>
-<% end %>
+<br>
+<small>Tags: 
+    <% @poem.tag_list.each do |tag| %>
+      <%= link_to tag, poems_wall_path(:tag => tag) %>
+    <% end %>
+  </small>
 <hr>
 <div id='comments'>
 <%= render @poem.comments %>

@@ -7,11 +7,11 @@
     <p>by <%= link_to poem.user.name, user_path(poem.user) %> in <%= link_to poem.language, poems_wall_path(:language => poem.language) %></p>
 
     <pre><code data-language="<%= poem.language %>" class="poem"><%= poem.content %></code></pre></a>
-    
+  <small>Tags: 
     <% poem.tag_list.each do |tag| %>
       <%= link_to tag, poems_wall_path(:tag => tag) %>
     <% end %>
-
+  </small>
     <% if user_signed_in? %>
       <% if current_user == poem.user %>
         <div class="pull-right"><%= link_to 'Edit your poem', edit_user_poem_path(poem.user, poem), :class => 'btn btn-small' %></div>
@@ -24,5 +24,5 @@
 <%= will_paginate @poems, :page_links => false, :class => 'apple_pagination' %>
 
 <% if user_signed_in? %>
-  <br><center><%= link_to "<i class='icon-edit icon-large'></i> Write a poem".html_safe, new_user_poem_path(current_user), :class => 'btn btn-success btn-large' %></center>
+  <br><center><%= link_to " Write a poem".html_safe, new_user_poem_path(current_user) %></center>
 <% end %>
