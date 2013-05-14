@@ -134,7 +134,6 @@ ActiveRecord::Schema.define(:version => 20130513053203) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "link"
-  end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["invitation_token"], :name => "index_users_on_invitation_token", :unique => true
