@@ -6,7 +6,5 @@ class Comment < ActiveRecord::Base
   validates :content, :presence => true
 
   has_many :poems
-
-  
   
 end

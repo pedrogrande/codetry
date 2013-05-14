@@ -1,4 +1,4 @@
-<div class="navbar navbar-fixed-top">
+<div class="navbar navbar-inverse navbar-fixed-top">
   <nav class="navbar-inner">
     <div class="container">
 
@@ -7,21 +7,20 @@
         <li><%= link_to "Poem wall", poems_wall_path %></li>
         <% if user_signed_in? %>
           <li><%= link_to current_user.name, current_user %></li>
-          <li><%= link_to '<i class="icon-edit icon-large"></i>'.html_safe, new_user_poem_path(current_user) %></li>
-          <li><%= link_to '<i class="icon-cog icon-large"></i>'.html_safe, edit_user_registration_path %></li>
+          <li><%= link_to '<i class="icon-edit icon-large"></i>'.html_safe, new_user_poem_path(current_user), :alt => "write new poem", :title => "write new poem"   %></li>
+          <li><%= link_to '<i class="icon-cog icon-large"></i>'.html_safe, edit_user_registration_path, :alt => "edit profile", :title => "edit profile"  %></li>
 
           <% if current_user.has_role? :admin %>
-            <li><%= link_to '<i class="icon-cogs icon-large"></i>'.html_safe, admin_path %></li>
+            <li><%= link_to '<i class="icon-cogs icon-large"></i>'.html_safe, admin_path, :alt => "admin settings", :title => "admin settings" %></li>
           <% end %>
 
-          <li><%= link_to '<i class="icon-signout icon-large"></i>'.html_safe, destroy_user_session_path, :method=>'delete' %></li>
+          <li><%= link_to '<i class="icon-signout icon-large"></i>'.html_safe, destroy_user_session_path, :method=>'delete', :alt => "logout", :title => "logout"   %></li>
         
         <% else %>
           <li><%= link_to 'Login', new_user_session_path %></li>
           <li><%= link_to 'Sign up', new_user_registration_path %></li>
         <% end %>
-      </ul>
-      
+      </ul>      
     </div>
   </nav>
 </div>

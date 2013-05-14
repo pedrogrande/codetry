@@ -5,14 +5,20 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable 
-  devise :omniauthable, :omniauth_providers => [:facebook]
+
+  extend FriendlyId
+  friendly_id :name, use: :slugged
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :role_ids, :as => :admin
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :about, :picture, :location, :facebook, :twitter, :website, :provider, :uid, :ban
+
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :about, :picture, :location, :facebook, :twitter, :website, :provider, :uid, :ban, :slug, :provider, :image, :first_name, :last_name, :link, :gender
+
+  devise :omniauthable  
 
   # Carrierwave avatar uploading
   mount_uploader :picture, AvatarUploader
+
 
   has_many :poems
   has_many :comments
@@ -24,6 +30,10 @@ class User < ActiveRecord::Base
                     provider:auth.provider,
                 uid:auth.uid,
                 email:auth.info.email,
+                 link:auth.extra.raw_info.link,
+                 image:auth.info.image,
+                 first_name:auth.info.first_name,
+                 last_name:auth.info.last_name,
                 password:Devise.friendly_token[0,20]
                 )
       end

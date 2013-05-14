@@ -9,5 +9,10 @@ class PoemsWallController < ApplicationController
     else
       @poems = Poem.all
     end
+      respond_to do |format|
+      format.js
+      format.html # index.html.erb
+      format.json { render json: @poems }
+    end
   end
 end

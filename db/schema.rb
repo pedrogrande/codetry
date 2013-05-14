@@ -1,3 +1,4 @@
+
 # encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
@@ -11,7 +12,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130509051033) do
+ActiveRecord::Schema.define(:version => 20130513053203) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -128,12 +129,19 @@ ActiveRecord::Schema.define(:version => 20130509051033) do
     t.string   "provider"
     t.string   "uid"
     t.boolean  "ban",                                  :default => false
+    t.string   "nickname"
+    t.string   "image"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "link"
+    t.string   "slug"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["invitation_token"], :name => "index_users_on_invitation_token", :unique => true
   add_index "users", ["invited_by_id"], :name => "index_users_on_invited_by_id"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["slug"], :name => "index_users_on_slug", :unique => true
 
   create_table "users_roles", :id => false, :force => true do |t|
     t.integer "user_id"
@@ -159,3 +167,4 @@ ActiveRecord::Schema.define(:version => 20130509051033) do
   add_index "votes", ["voter_id", "voter_type"], :name => "index_votes_on_voter_id_and_voter_type"
 
 end
+
