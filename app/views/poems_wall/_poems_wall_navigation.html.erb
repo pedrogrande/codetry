@@ -1,17 +1,17 @@
 <% @langArray = ['generic', 'c', 'c#', 'css', 'd', 'go', 'haskell', 'html' 'java', 'javascript', 'lua', 'php', 'python', 'r', 'ruby', 'scheme', 'shell', 'smalltalk'] %>
 
-
 <div class="navbar navbar-top">
   <nav class="navbar-inner">
     <div class="container">
       <%= link_to "Poem Wall", root_path, :class => 'brand' %>
       <ul class="nav pull-right">
-        <%= link_to "all", poems_wall_path %>
+        <%= link_to "all", poems_wall_path, :class => 'btn' %>
         <% @langArray.each do |lang| %>
-          <%= link_to lang, poems_wall_path(:language => lang) %>
+          <%= link_to lang, poems_wall_path(:language => lang), :class => 'btn' %>
         <% end %>
       </ul>
     </div>
+     <br> <!--Delete this break if navigation looks wrong-->
   </nav>
 </div>
 

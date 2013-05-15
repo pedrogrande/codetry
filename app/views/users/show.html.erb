@@ -24,7 +24,9 @@
 			<% unless @user.poems.blank? %>
 			  <% @user.poems.each do |poem| %>
 			    <h1><%= link_to poem.title, user_poem_path(@user, poem) %></h1>
-			    <p>by <%= link_to poem.user.name, user_path(poem.user) %> in <%= link_to poem.language, "#" %>
+
+			    <p>by <%= link_to poem.user.name, user_path(poem.user) %> in <%= link_to poem.language, poems_wall_path(:language => poem.language) %>
+
 			    <% if user_signed_in? %>
 			      <% if current_user == @user %>
 			        &nbsp;<%= link_to 'Edit', edit_user_poem_path(@user, poem), :class => 'btn btn-mini' %>

@@ -1,0 +1,26 @@
+<h4>Tag Cloud</h4>
+
+<% tagsArray = Array.new %>
+<% if Poem.tag_counts.length > 0 %>
+  <% @tags.each do |tag| %>
+    <% @ta = tagsArray.push(tag) %>
+  <% end %>
+  <% else %>
+  <% @ta = "empty" %>
+<% end %>
+
+<script type="text/javascript">
+
+  var word_array = [];
+  <% if @ta != "empty" %>
+    <% @ta.each_with_index do |t, index| %>
+      word_array.push({text: "<%= @ta[index].name %>", weight: <%= @ta[index].count %>, link: "<%= poems_wall_path(:tag => @ta[index].name) %>" })
+    <% end %>
+  <% end %>
+
+  $(function() {
+    $("#codetry_tag_cloud").jQCloud(word_array);
+  });
+</script>
+
+<div id="codetry_tag_cloud" style="width: 550px; height: 350px;"></div>

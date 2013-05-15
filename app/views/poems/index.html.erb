@@ -1,9 +1,5 @@
 <div style="min-height: 400px;"><h1><%= @user.name %>'s Poems</h1>
 
-
-
-
-
 <table class="table">
   <tr>
     <th>Title</th>
@@ -12,10 +8,6 @@
     <th>Active</th>
     <th></th>
   </tr>
-
-
-
-
 
 <% @poems.each do |poem| %>
 
@@ -33,35 +25,12 @@
 
 <%= link_to 'New Poem', new_user_poem_path %>
 <br />
+
+<%= render 'poems/most_popular_poem' %>
+<%= render 'poems/most_viewed_poem' %>
+
 </div>
 
-
-<!--THIS WILL SHOW THE MOST VIEWED POEM-->
-<% ic = Array.new %>
-<% ps = Array.new %>
-<% @most_viewed_poem = [] %>
-
-<% @poems.each do |poem| %>
-  <% if poem.impressionist_count > 0 %>
-    <% j = ic.push(poem.impressionist_count) %>
-    <% p = ps.push(poem) %>
-    <% @ic_max_index = j.index(j.max) %>
-    <% @most_viewed_poem = p[@ic_max_index]%>
-  <% end %>
-<% end %>
-
-<% if @most_viewed_poem != [] %>
-  <h4><%= @user.name %>'s most viewed poem is..</h4>
-  <p><strong>User</strong><br>
-  <%= @most_viewed_poem.user.name %></p>
-  <p><strong>Title</strong><br>
-  <%= @most_viewed_poem.title %></p>
-  <p><strong>Views</strong><br>
-  <%= @most_viewed_poem.impressionist_count(:filter=>:ip_address) %></p>
-  <p><strong>Content</strong><br>
-  <%= @most_viewed_poem.content %></p>
-<% end %>
-<!---->
 
 
 

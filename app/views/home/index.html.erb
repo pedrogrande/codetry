@@ -7,7 +7,7 @@
     <pre><code data-language="<%= poem.language %>" class="poem"><%= poem.content %></code></pre></a>
     
     <% poem.tag_list.each do |tag| %>
-      <%= link_to tag, poems_wall_path(:tag => tag) %>
+      <%= link_to tag, poems_wall_path(:tag => tag), :class => 'btn' %>
     <% end %>
 
     <% if user_signed_in? %>

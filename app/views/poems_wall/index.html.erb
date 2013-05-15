@@ -1,10 +1,12 @@
-<%= render 'poems_wall/poems_wall_navigation' %>
-
 <!--Everyone's poems are listed here. clicking on a language will hide all other languages. click on 'all' to clear this and show all languages again-->
-
+<!--STUFF TO BE DONE -->
 <!--Maybe use javascript less/more text button to make the wall more readable if poems get too pig -->
 
-<!-- Add tag cloud -->
+<%= render 'poems_wall/poems_wall_navigation' %>
+
+<%= render 'poems_wall/most_popular_poem' %>
+
+<%= render 'poems_wall/most_viewed_poem' %>
 
 <h2>Latest Poems</h2>
 
@@ -12,7 +14,7 @@
 	<% @poems.each do |poem| %>
 		<li>
 			<p><h4><%= link_to poem.title, [poem.user, poem] %></h4></p>
-			<p>By: <%= poem.user.name %></p>
+			<p>By: <%= link_to poem.user.name, poem.user %></p>
 			<p>Content: <%= truncate(poem.content) %></p>
 			<% if poem.tag_list != [] %>
 				<p>Tags:  
@@ -22,6 +24,9 @@
 		  		</p>
 			<% end %>
 			<p>Language: <%= link_to poem.language, poems_wall_path(:language => poem.language) %></p>
+			<% if poem.likes.size > 0 %>
+  				<p>Likes: <%= poem.likes.size %></p>
+			<% end %>
 			<p><small><%=poem.created_at.strftime("Submitted on %A, %e %b %Y") %></small></p>
 			<%= link_to 'Read & Comment', [poem.user, poem], :class => 'btn btn-primary' %>
 			<br>
@@ -32,3 +37,5 @@
 
 
 <script>stroll.bind( '#main ul' );</script>
+
+<%= render 'poems_wall/tag_cloud' %>
