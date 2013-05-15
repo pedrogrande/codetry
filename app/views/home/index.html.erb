@@ -1,18 +1,29 @@
-<div class="poem">
-  
+<div>
+
+
+  <br>
+  <center><h2>
+    <%= link_to new_user_poem_path(current_user), :class => 'btn btn-inverse btn-large' do %>
+      <i class="icon-pencil"></i> Write a code poem now
+    <% end %>
+  </h2></center>
+
+  <br><br>
 <% @poems.each do |poem| %>
   <h1><%= link_to poem.title, [poem.user, poem] %></h1>
-    <p>by <%= link_to poem.user.name, user_path(poem.user) %> in <%= link_to poem.language, poems_wall_path(:language => poem.language) %></p>
+    <p><center>by <%= link_to poem.user.name, user_path(poem.user) %></center></p>
 
-    <pre><code data-language="<%= poem.language %>" class="poem"><%= poem.content %></code></pre></a>
-  <small>Tags: 
+    <pre class="home-poem"><code data-language="<%= poem.language %>" class="poem"><%= poem.content %></code></pre></a>
+  Tags: 
     <% poem.tag_list.each do |tag| %>
       <%= link_to tag, poems_wall_path(:tag => tag) %>
     <% end %>
-  </small>
+    <br>
+    Language: <%= link_to poem.language, poems_wall_path(:language => poem.language) %>
+    <br>
     <% if user_signed_in? %>
       <% if current_user == poem.user %>
-        <div class="pull-right"><%= link_to 'Edit your poem', edit_user_poem_path(poem.user, poem), :class => 'btn btn-small' %></div>
+        <%= link_to 'Edit your poem', edit_user_poem_path(poem.user, poem), :class => 'btn btn-small btn-inverse' %>
       <% end %>
     <% end %>
 
@@ -21,12 +32,10 @@
 
 <%= will_paginate @poems, :page_links => false, :class => 'apple_pagination' %>
 
-<% if user_signed_in? %>
-  <br><center><%= link_to " Write a poem".html_safe, new_user_poem_path(current_user) %></center>
-<% end %>
+
 
 <div class="container-social">
-  <h3>Spread the love</h3>
+  <h4>Spread the love</h4>
   <div class="fb-like" data-href="http://www.codetry.org" data-send="false" data-layout="box_count" data-width="450" data-show-faces="true"></div>
   <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.codetry.org" data-via="your_screen_name" data-lang="en" data-related="anywhereTheJavascriptAPI" data-count="vertical">Tweet</a>
   <div class="g-plusone" data-size="tall" data-href="http://www.codetry.org"></div>

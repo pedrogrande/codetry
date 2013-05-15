@@ -32,7 +32,8 @@ describe PoemsController do
 
   describe "GET index" do
     it "assigns all poems as @poems" do
-      poem = Poem.create! valid_attributes
+      user = User.create(:user)
+      poem = Poem.create!(:poem, user: user) valid_attributes
       get :index, {}, valid_session
       assigns(:poems).should eq([poem])
     end
@@ -40,9 +41,9 @@ describe PoemsController do
 
   describe "GET show" do
     it "assigns the requested poem as @poem" do
-      poem = Poem.create! valid_attributes
-      get :show, {:id => poem.to_param}, valid_session
-      assigns(:poem).should eq(poem)
+      user = User.create(:user)
+      poem = Poem.create(:poem, user: user)
+      get :show, id: poem, user_id: user.id
     end
   end
 

@@ -13,5 +13,8 @@ class PoemsWallController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @poems }
     end
+
   end
+
+
 end

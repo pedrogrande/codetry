@@ -6,7 +6,7 @@
 
 <!-- Add tag cloud -->
 
-<h2>Latest Poems</h2>
+<h4>Latest Poems</h4>
 
 <ul class="zipper" id="main">
 	<% @poems.each do |poem| %>
@@ -23,7 +23,7 @@
 			<% end %>
 			<p>Language: <%= link_to poem.language, poems_wall_path(:language => poem.language) %></p>
 			<p><small><%=poem.created_at.strftime("Submitted on %A, %e %b %Y") %></small></p>
-			<%= link_to 'Read & Comment', [poem.user, poem], :class => 'btn btn-primary' %>
+			<%= link_to 'Read & Comment', [poem.user, poem] %>
 			<br>
 		</li>
 

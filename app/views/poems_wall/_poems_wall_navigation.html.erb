@@ -1,17 +1,13 @@
-<% @langArray = ['generic', 'c', 'c#', 'css', 'd', 'go', 'haskell', 'html' 'java', 'javascript', 'lua', 'php', 'python', 'r', 'ruby', 'scheme', 'shell', 'smalltalk'] %>
+<h1>Poem Wall</h1>
+      
+<br>
 
+  <h4>Language filter</h4>
+  <ul class="nav nav-pills">
+    <% Poem.all.map(&:language).uniq.each do |language| %>
+      <li><%= link_to language, poems_wall_path(:language => language) %></li>
+    <% end %>
+    <li><%= link_to "CLEAR FILTER", poems_wall_path %></li>
+  </ul>
 
-<div class="navbar navbar-top">
-  <nav class="navbar-inner">
-    <div class="container">
-      <%= link_to "Poem Wall", root_path, :class => 'brand' %>
-      <ul class="nav pull-right">
-        <%= link_to "all", poems_wall_path %>
-        <% @langArray.each do |lang| %>
-          <%= link_to lang, poems_wall_path(:language => lang) %>
-        <% end %>
-      </ul>
-    </div>
-  </nav>
-</div>
-
+<br>

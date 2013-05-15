@@ -50,23 +50,24 @@ body {
   font-size: 20px;
   line-height: 1.5em;
 }
-
-.poem h1 {
+.home-poem {
+  padding: 60px 20px 60px 100px;
+}
+.home h1 {
 	text-align: center;
 }
 
-.poem h1 a {
+.home h1 a {
 	color: #C00000;
+	text-decoration: none;
 }
 
-.poem h2 {
+
+.home h2 {
 	text-align: center;
 }
 
-.poem p {
-	font-size: 16px;
-	text-align: center;
-}
+
 
 .container {
 	margin: 0 auto;
@@ -141,7 +142,7 @@ body {
 
 .navbar-inverse .navbar-inner {
 	background-image:none;
-	background-color:rgba(0,0,0,0.75);
+	background-color:rgba(0,0,0,1);
 }
 
 .navbar-inverse .brand {

@@ -30,21 +30,15 @@ describe CommentsController do
   # CommentsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  describe "GET index" do
-    it "assigns all comments as @comments" do
-      comment = Comment.create! valid_attributes
-      get :index, {}, valid_session
-      assigns(:comments).should eq([comment])
-    end
-  end
-
-  describe "GET show" do
-    it "assigns the requested comment as @comment" do
-      comment = Comment.create! valid_attributes
-      get :show, {:id => comment.to_param}, valid_session
-      assigns(:comment).should eq(comment)
-    end
-  end
+  # describe "GET show" do
+  #   it "assigns the requested comment as @comment" do
+  #     user = User.create(:user)
+  #     poem = Poem.create(:poem, user: user)
+  #     comment = Comment.create!(:comment, poem: poem) valid_attributes
+  #     get :show, {:id => comment.to_param, :user_id => user.id, :poem_id => poem.id}, valid_session
+  #     assigns(:comment).should eq(comment)
+  #   end
+  # end
 
   describe "GET new" do
     it "assigns a new comment as @comment" do
