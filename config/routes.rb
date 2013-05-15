@@ -31,16 +31,24 @@ Codetry::Application.routes.draw do
   root :to => "home#index"
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
+
   resources :users do
     resources :poems do
-    	resources :comments 
+      resources :comments 
+      member do
+        post :upvote
+        post :downvote
+      end
     end
   end
 
-   resources :users do
-      member do
-          put :banunban
+  
+
+  resources :users do
+    member do
+      put :banunban
     end
   end
+
 
 end

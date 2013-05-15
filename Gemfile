@@ -28,6 +28,7 @@ gem "carrierwave"
 gem "fog"
 gem "will_paginate"
 gem 'impressionist'
+gem "jqcloud-rails"
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'carrierwave'

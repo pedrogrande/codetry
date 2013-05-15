@@ -1,0 +1,35 @@
+<% ls = Array.new %>
+<% pls = Array.new %>
+<% @most_popular_poem = [] %>
+
+<% @poems.each do |poem| %>
+  <% if poem.likes.size > 0 %>
+    <% j = ls.push(poem.likes.size) %>
+    <% p = pls.push(poem) %>
+    <% @ls_max_index = j.index(j.max) %>
+    <% @most_popular_poem = p[@ls_max_index]%>
+  <% end %>
+<% end %>
+
+<% if @most_popular_poem != [] %>
+  <h4>Most popular poem is..</h4>
+    <p><strong>User</strong><br>
+    <%= link_to @most_popular_poem.user.name, @most_popular_poem.user %></p>
+    <p><strong>Title</strong><br>
+    <%= link_to @most_popular_poem.title, user_poem_path(@most_popular_poem.user, @most_popular_poem) %></p>
+    <p><strong>Language</strong><br>
+    <%= link_to @most_popular_poem.language, poems_wall_path(:language => @most_popular_poem.language) %></p>
+    <p><strong>Views</strong><br>
+    <%= @most_popular_poem.impressionist_count(:filter=>:ip_address) %></p>
+    <p><strong>Likes</strong><br>
+    <%= @most_popular_poem.likes.size %></p>
+    <p><strong>Content</strong><br>
+    <%= @most_popular_poem.content %></p>
+    <% if @most_popular_poem.tag_list != [] %>
+      <p><strong>Tags:</strong>  
+      <% @most_popular_poem.tag_list.each do |tag| %>
+      <%= link_to tag, poems_wall_path(:tag => tag) %>
+      <% end %>
+      </p>
+    <% end %>
+<% end %>

@@ -5,9 +5,7 @@ class Poem < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
 
-  acts_as_taggable
-  acts_as_taggable_on :tags
-
+  
   self.per_page = 1
 
   has_many :comments, :dependent => :destroy
@@ -18,10 +16,13 @@ class Poem < ActiveRecord::Base
   acts_as_votable
 
   acts_as_taggable
-  acts_as_taggable_on :languages
+  acts_as_taggable_on :languages, :tags
 
+
+  acts_as_votable
 
   default_scope order: 'poems.created_at DESC'
+
 
 
 end

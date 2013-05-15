@@ -52,4 +52,6 @@ class User < ActiveRecord::Base
   !provider.nil? || super(password)  
   end
   
+  acts_as_voter
+
 end
