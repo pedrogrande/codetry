@@ -1,5 +1,6 @@
 class CreatePoems < ActiveRecord::Migration
   def change
+    drop_table :poems
     create_table :poems do |t|
       t.string :title
       t.text :content
