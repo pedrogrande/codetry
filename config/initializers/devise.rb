@@ -6,9 +6,14 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
   config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
-  require "omniauth-facebook"
-  OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE if Rails.env.development? 
-  config.omniauth :facebook, "645264938823482", "3fc58d482dbac27d3c26198627d1501e"
+  require "omniauth-facebook" 
+  config.omniauth :facebook, 'FACEBOOK_ID', 'FACEBOOK_SECRET'
+
+  require "omniauth-google-oauth2"
+  config.omniauth :google_oauth2, "GOOGLE_ID", "GOOGLE_SECRET", { access_type: "offline", approval_prompt: "" }
+
+  require 'omniauth-twitter'
+  config.omniauth :twitter ,"TWITTER_ID", "TWITTER_SECRET"
   
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"

@@ -1,12 +1,37 @@
 <h2>Sign up</h2>
+
+<div class="row">
+	<div class="span4">
+		<br>
+		<%= link_to user_omniauth_authorize_path(:facebook), :class => 'sign btn btn-primary btn-large' do %>
+			<i class="icon-facebook-sign icon-large"></i> Sign up with Facebook
+		<% end %>
+		<br><br>
+		<%= link_to user_omniauth_authorize_path(:google_oauth2), :class => 'sign btn btn-danger btn-large' do %>
+			<i class="icon-google-plus-sign icon-large"></i> Sign up with Google
+		<% end %>
+
+		<br><br>
+		<%= link_to user_omniauth_authorize_path(:twitter), :class => 'btn btn-primary btn-large sign' do %>
+			<i class="icon-twitter-sign icon-large"></i> Sign up with Twitter
+		<% end %>
+
+	</div>
+	<div class="span2">
+		<br><br><br>
+		<h2>OR</h2>
+	</div>
+	<div class="span6">
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-vertical' }) do |f| %>
-  <%= f.error_notification %>
-  <%= display_base_errors resource %>
-  <%= f.input :name, :autofocus => true %>
-  <%= f.input :email, :required => true %>
-  <%= f.input :password, :required => true %>
-  <%= f.input :password_confirmation, :required => true %>
-  <%= f.button :submit, 'Sign up', :class => 'btn-success' %> or 
-  <%= link_to "Login with Facebook", user_omniauth_authorize_path(:facebook), :class => 'btn btn-primary' %>
-<% end %>
-<%= render "devise/shared/links" %>
+		  <%= f.error_notification %>
+		  <%= display_base_errors resource %>
+		  <%= f.input :name, :autofocus => true %>
+		  <%= f.input :email, :required => true %>
+		  <%= f.input :password, :required => true %>
+		  <%= f.input :password_confirmation, :required => true %>
+		  <%= f.button :submit, 'Sign up', :class => 'btn-success' %> or 
+		  
+		<% end %>
+		<%= render "devise/shared/links" %>
+	</div>
+</div>
