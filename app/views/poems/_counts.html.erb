@@ -1,0 +1,3 @@
+<%= pluralize(poem.impressionist_count(:filter=>:ip_address), 'view') %> | 
+<%= pluralize(poem.likes.size, 'vote') %> | 
+<%= pluralize(poem.comments.count, 'comment') %>

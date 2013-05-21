@@ -1,8 +1,8 @@
-<h1>Poem Wall</h1>
+<h1>Explore Codetry</h1>
       
 <br>
 
-  <h4>Language filter</h4>
+  <h3>Language filter</h3>
   <ul class="nav nav-pills">
     <% Poem.all.map(&:language).uniq.each do |language| %>
       <li><%= link_to language, poems_wall_path(:language => language) %></li>

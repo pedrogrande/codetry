@@ -1,0 +1,3 @@
+<% if @poem.impressions.count >= 1 %>
+<p>Last viewed on <%= @poem.impressions.last.updated_at.strftime("%e %b %Y") %> by <%= @last_user.name %></p>
+<% end %>

@@ -1,0 +1,11 @@
+<h1><center><%= poem.title %><center></h1>
+  <p style="text-align: center">
+    by <%= link_to poem.user.name, user_path(poem.user) %>
+  </p>
+
+  <p style="text-align: center">
+    <small>
+      Language: <%= link_to poem.language, poems_wall_path(:language => poem.language) %> | 
+      <%= render 'tags' %>
+    </small>
+  </p>

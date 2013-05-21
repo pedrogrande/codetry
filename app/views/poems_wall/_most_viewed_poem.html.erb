@@ -12,19 +12,17 @@
 <% end %>
 
 <% if @most_viewed_poem != [] %>
-  <h4>Most viewed poem is..</h4>
-    <p><strong>User</strong><br>
-    <%= link_to @most_viewed_poem.user.name, @most_viewed_poem.user %></p>
-    <p><strong>Title</strong><br>
-    <%= link_to @most_viewed_poem.title, user_poem_path(@most_viewed_poem.user, @most_popular_poem) %></p>
-    <p><strong>Language</strong><br>
+  <h3>Most viewed poem is..</h3>
+    <h3>
+    <%= link_to @most_viewed_poem.title, user_poem_path(@most_viewed_poem.user, @most_viewed_poem) %></h3>
+    <p>by <%= link_to @most_viewed_poem.user.name, @most_viewed_poem.user %>
+    
+    <p><%= pluralize(@most_viewed_poem.impressionist_count(:filter=>:ip_address), 'view') %> | 
+    <%= pluralize(@most_viewed_poem.likes.size, 'vote') %> | 
+    <a href="#comments"><%= pluralize(@most_viewed_poem.comments.count, 'comment') %></a>
+</p>
+<p>Language: 
     <%= link_to @most_viewed_poem.language, poems_wall_path(:language => @most_viewed_poem.language) %></p>
-    <p><strong>Views</strong><br>
-    <%= @most_viewed_poem.impressionist_count(:filter=>:ip_address) %></p>
-    <p><strong>Likes</strong><br>
-    <%= @most_viewed_poem.likes.size %></p>
-    <p><strong>Content</strong><br>
-    <%= @most_viewed_poem.content %></p>
     <% if @most_viewed_poem.tag_list != [] %>
       <p><strong>Tags:</strong>  
       <% @most_viewed_poem.tag_list.each do |tag| %>

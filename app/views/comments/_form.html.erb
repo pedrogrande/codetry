@@ -1,7 +1,7 @@
 <%= simple_form_for [@poem.user, @poem, @poem.comments.new], :remote => true do |f| %>
 	<%= f.error_notification %>
-	<%= f.input :content, :label => false, :input_html => { :class => 'span6', :rows => 6 } %> 
-	<!--<%= f.association :user %>-->
 
-	<%= f.submit 'Submit Comment', :class => 'btn btn-success' %>
+	<%= f.input :content, :label => false, :input_html => { :class => 'span6', :rows => 6 } %> 
+
+	<%= f.submit 'Comment', :class => 'btn btn-inverse' %>
  <% end %>

@@ -1,15 +1,25 @@
-<div class="navbar navbar-inverse navbar-fixed-top">
-  <nav class="navbar-inner">
+<div class="navbar">
+  <div class="navbar-inner">
     <div class="container">
 
       <%= link_to "< codetry >", root_path, :class => 'brand' %>
       <ul class="nav pull-right">
-        <li>
-          <%= link_to new_user_poem_path(current_user), :alt => "write new poem", :title => "write new poem" do %>
-            <i class="icon-pencil icon-large"></i>
-          <% end %>
-        </li>
-        <li><%= link_to "Poem wall", poems_wall_path %></li>
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to new_user_poem_path(current_user), :alt => "write new poem", :title => "write new code poem", :data => { :toggle => 'tooltip', :trigger => 'focus' }, :id => 'tooltip' do %>
+              <i class="icon-pencil icon-large"></i>
+            <% end %>
+          </li>
+          <% else %>
+            <li>
+              <%= link_to new_user_session_path, :alt => "write new poem", :title => "write new code poem", :data => { :toggle => 'tooltip', :trigger => 'focus' }, :id => 'tooltip' do %>
+                <i class="icon-pencil icon-large"></i>
+              <% end %>
+            </li>
+          
+        
+        <% end %>
+        <li><%= link_to "Explore", poems_wall_path %></li>
         <% if user_signed_in? %>
 
         <li class="dropdown">
@@ -17,6 +27,7 @@
               <a href="#" data-toggle="dropdown" class="dropdown-toggle"><%= current_user.name %><b class="caret"></b></a>
               <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
                 <li><%= link_to 'My profile', user_path(current_user) %></li>
+                <li><%= link_to 'My code poems', user_poems_path(current_user) %></li>
                 <li><%= link_to 'Edit account', edit_user_registration_path, :alt => "edit profile", :title => "edit profile"  %></li>
                 <% if current_user.has_role? :admin %>
                   <li><%= link_to 'Admin', admin_path, :alt => "admin settings", :title => "admin settings" %></li>
@@ -35,5 +46,5 @@
         <% end %>
       </ul>      
     </div>
-  </nav>
+  </div>
 </div>

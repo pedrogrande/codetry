@@ -1,4 +1,5 @@
-<div style="min-height: 400px;"><h1><%= @user.name %>'s Poems</h1>
+<% content_for :title, @user.name + "'s code poems" %>
+<div style="min-height: 400px;"><h1><%= @user.name %>'s Code Poems</h1>
 
 <table class="table">
   <tr>

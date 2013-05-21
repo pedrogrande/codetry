@@ -1,41 +1,119 @@
+<% content_for :title, "Explore Codetry - powered by Sydney Dev Camp" %>
+
 <!--Everyone's poems are listed here. clicking on a language will hide all other languages. click on 'all' to clear this and show all languages again-->
 <!--STUFF TO BE DONE -->
 <!--Maybe use javascript less/more text button to make the wall more readable if poems get too pig -->
 
 <%= render 'poems_wall/poems_wall_navigation' %>
+<div class="row">
+	<div class="span4">
+		<%= render 'poems_wall/most_popular_poem' %>
+	</div>
 
-<%= render 'poems_wall/most_popular_poem' %>
+	<div class="span4">
+		<%= render 'poems_wall/most_viewed_poem' %>
+	</div>
 
-<%= render 'poems_wall/most_viewed_poem' %>
+	<%= render 'poems_wall/tag_cloud' %>
+	<div class="span4" id="codetry_tag_cloud">
+	</div>
+</div>
+<hr>
+<h3>Latest Poems</h3>
 
-<h4>Latest Poems</h4>
+	<% @poems.each_with_index do |poem, index| %>
+		<div class="wall-poem">
+			 <center>
+			<h2><%= link_to poem.title, [poem.user, poem] %></h2>
+        
+       
+          <p>by <%= link_to poem.user.name, user_path(poem.user) %></p>
+      </center>
+      
 
-<ul class="zipper" id="main">
-	<% @poems.each do |poem| %>
-		<li>
-			<p><h4><%= link_to poem.title, [poem.user, poem] %></h4></p>
-			<p>By: <%= link_to poem.user.name, poem.user %></p>
-			<p>Content: <%= truncate(poem.content) %></p>
-			<% if poem.tag_list != [] %>
-				<p>Tags:  
-				<% poem.tag_list.each do |tag| %>
-		  		<%= link_to tag, poems_wall_path(:tag => tag) %></a>
-		  		<% end %>
-		  		</p>
-			<% end %>
-			<p>Language: <%= link_to poem.language, poems_wall_path(:language => poem.language) %></p>
-			<% if poem.likes.size > 0 %>
-  				<p>Likes: <%= poem.likes.size %></p>
-			<% end %>
-			<p><small><%=poem.created_at.strftime("Submitted on %A, %e %b %Y") %></small></p>
-			<%= link_to 'Read & Comment', [poem.user, poem] %>
-			<br>
-		</li>
+        <pre class="home-poem"><code data-language="<%= poem.language %>" class="poem"><%= poem.content %></code></pre>
+        
+      </div>
+          <center>
 
+            <p>Tags: 
+              <% poem.tag_list.each do |tag| %>
+                <%= link_to tag, poems_wall_path(:tag => tag) %>
+              <% end %></p>
+
+              <p>
+                <%= pluralize(poem.impressionist_count(:filter=>:ip_address), 'view') %> | 
+                <%= pluralize(poem.likes.size, 'vote') %> | 
+                <%= link_to (user_poem_path(poem.user, poem) + "#comments") do %>
+                  <%= pluralize(poem.comments.count, 'comment') %>
+                <% end %>
+              </p>
+
+              <% if user_signed_in? %>
+                <% if !current_user.liked?(poem) %>
+                  <%= link_to 'Vote for this code poem', upvote_user_poem_path(poem.user, poem), :method => :post, :class => 'btn btn-inverse btn-small' %>
+                <% else %>
+                  <%= link_to 'Cancel vote', downvote_user_poem_path(poem.user, poem), :method => :post, :class => 'btn btn-inverse btn-small' %>
+                <% end %>
+              <% end %>
+              <br><br>
+            <a href="<%= modal(index) %>" role="button" class="btn btn-inverse btn-small" data-toggle="modal">Share this code poem</a>
+
+      </center>
+     <!-- Modal -->
+      <div id="<%= modal_id(index) %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="myModalLabel">Thank you for sharing!</h3>
+        </div>
+
+        <div class="modal-body">
+          <h4><%= poem.title %></h4>
+          <table class="table">
+            <tr>
+              <th>Facebook</th>
+              <td>
+
+              	<div class="fb-like" data-href="<%= user_poem_url(poem.user, poem) %>" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+              </td>
+            </tr>
+            <tr>
+              <th>Twitter</th>
+              <td><a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= user_poem_url(poem.user, poem) %>" data-text="Check out this code poem" data-via="SydneyDevCamp" data-hashtags="codepoem">Tweet</a></td>
+            </tr>
+            <tr>
+              <th>Google+</th>
+              <td><div class="g-plusone" data-href="<%= user_poem_url(poem.user, poem) %>" data-size="tall" data-annotation="inline" data-width="200"></div></td>
+            </tr>
+            <tr>
+              <th>LinkedIn</th>
+              <td><script src="//platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
+                <script type="IN/Share" data-url="<%= link_to user_poem_url(poem.user, poem) %>" data-counter="right"></script>
+              </td>
+            </tr>
+            <tr>
+              <th>Hacker News</th>
+              <td><a href="http://news.ycombinator.com/submit" class="hn-share-button" data-title="Codetry - Code poems for all" data-url="http://www.codetry.org/">Vote on HN</a></td>
+            </tr>
+            <tr>
+              <th>Reddit</th>
+              <td>
+                <script type="text/javascript" src="<%= reddit_url(poem) %>"></script>
+              </td>
+            </tr>
+          </table>
+            
+    
+
+        </div>
+        <div class="modal-footer">
+          <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        </div>
+      </div>
+      <hr>
 	<% end %>
-</ul>
+<%= will_paginate @poems, :class => 'apple_pagination' %>
+<%= render 'poems/twitter_script' %>
 
 
-<script>stroll.bind( '#main ul' );</script>
 
-<%= render 'poems_wall/tag_cloud' %>

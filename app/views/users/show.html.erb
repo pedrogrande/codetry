@@ -1,6 +1,12 @@
+<% content_for :title, @user.name + " - Codetry - powered by Sydney Dev Camp" %>
 <div class="row-fluid">
 	<div class="span3">
-		<%= image_tag(@user.picture, :class => 'img-rounded') if @user.picture? %>
+		<% if !@user.picture.blank? %>
+			<%= image_tag(@user.picture, :class => 'img-rounded') %>
+		<% elsif !@user.image.blank? %>
+			<%= image_tag(@user.profile_photo, :class => 'img-rounded') %>
+		<% end %>
+		
 		<h3><%= @user.name %></h3>
 		<h4><%= @user.location if @user.location? %></h4>
 		<p><%= @user.about if @user.about? %></p>

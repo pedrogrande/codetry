@@ -12,19 +12,18 @@
 <% end %>
 
 <% if @most_popular_poem != [] %>
-  <h4>Most popular poem is..</h4>
-    <p><strong>User</strong><br>
-    <%= link_to @most_popular_poem.user.name, @most_popular_poem.user %></p>
-    <p><strong>Title</strong><br>
-    <%= link_to @most_popular_poem.title, user_poem_path(@most_popular_poem.user, @most_popular_poem) %></p>
-    <p><strong>Language</strong><br>
+  <h2>Most popular poem is..</h2>
+    
+    <h3>
+    <%= link_to @most_popular_poem.title, user_poem_path(@most_popular_poem.user, @most_popular_poem) %></h3>
+    <p>by <%= link_to @most_popular_poem.user.name, @most_popular_poem.user %>
+    
+    <p><%= pluralize(@most_popular_poem.impressionist_count(:filter=>:ip_address), 'view') %> | 
+    <%= pluralize(@most_popular_poem.likes.size, 'vote') %> | 
+    <a href="#comments"><%= pluralize(@most_popular_poem.comments.count, 'comment') %></a>
+</p>
+<p>Language: 
     <%= link_to @most_popular_poem.language, poems_wall_path(:language => @most_popular_poem.language) %></p>
-    <p><strong>Views</strong><br>
-    <%= @most_popular_poem.impressionist_count(:filter=>:ip_address) %></p>
-    <p><strong>Likes</strong><br>
-    <%= @most_popular_poem.likes.size %></p>
-    <p><strong>Content</strong><br>
-    <%= @most_popular_poem.content %></p>
     <% if @most_popular_poem.tag_list != [] %>
       <p><strong>Tags:</strong>  
       <% @most_popular_poem.tag_list.each do |tag| %>

@@ -1,0 +1,6 @@
+
+	<% if user_signed_in? && !current_user.liked?(poem) %>
+		<%= render 'like' %>
+	<% else %>
+		<%= render 'unlike' %>
+	<% end %>

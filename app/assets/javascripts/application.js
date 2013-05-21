@@ -15,3 +15,5 @@
 //= require bootstrap
 //= require jqcloud
 //= require_tree .
+
+$('#tooltip').tooltip({trigger: 'hover'})

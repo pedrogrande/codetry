@@ -1,5 +1,5 @@
 class Poem < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :user, :dependent => :destroy
   attr_accessible :content, :language, :slug, :title, :tag_list, :user
 
   extend FriendlyId
@@ -18,11 +18,7 @@ class Poem < ActiveRecord::Base
   acts_as_taggable
   acts_as_taggable_on :languages, :tags
 
-
   acts_as_votable
 
   default_scope order: 'poems.created_at DESC'
-
-
-
 end

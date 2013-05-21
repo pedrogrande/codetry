@@ -6,7 +6,7 @@ class PoemsController < ApplicationController
     @poems = Poem.find(params[:id])
     @poems.liked_by current_user
     respond_to do |format|
-      format.html {redirect_to :back}
+      format.html {redirect_to :back, notice: 'Thanks for voting' }
       format.js
     end
   end
@@ -43,7 +43,7 @@ class PoemsController < ApplicationController
       format.html # show.html.erb
       format.json { render json: @poem }
     end
-    impressionist(@poem,message:"wtf is a widget?") #message is optional
+    impressionist(@poem,message:"") #message is optional
   end
 
   # GET /poems/new

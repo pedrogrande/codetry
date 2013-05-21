@@ -10,38 +10,32 @@
     <%= yield(:head) %>
     <link href='http://fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic,700italic|Roboto+Slab:400,300,700|Special+Elite' rel='stylesheet' type='text/css'>
   </head>
-  <body class="<%= controller_name %> <%= action_name %> height_100" >
-    <!-- Part 1: Wrap all page content here -->
-  <div id="wrap">
-    <div id="fb-root"></div>
+  <body class="<%= controller_name %> <%= action_name %>" >
 
-  <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=548108761906472";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
+    
+  
 
     <%= render 'layouts/navigation' %>
-    <div id="main" role="main">
-      <div class="container">
-        <div class="page_content background_color_white background_image_paper margin_top_30px width_820px drop_shadow">
+    
+      <div class="container main">
+        
           <%= render 'layouts/messages' %>
           <%= yield %>
         </div>
+     
+  </div>
+  
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="span12">
+            <%= render 'layouts/footer' %>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-    <div id="blank_spacer" class="<%=controller_name%>_<%=action_name%>"></div>
-    <footer>
-      <div id="footer">
-        <div class="container">
-        <div class="background_color_white footer_content width_820px background_image_paper">
-          <%= render 'layouts/footer' %>
-        </div>
-        </div>
-      </div>
+
     </footer>  
+    <%= render 'layouts/facebook_script' %>
   </body>
 </html>
