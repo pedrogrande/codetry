@@ -20,19 +20,7 @@ module Codetry
       g.helper_specs false
     end
 
-  config.action_mailer.smtp_settings = {
-    :address              => "smtp.gmail.com",
-    :port                 => 587,
-    :domain               => "Codetry.org",
-    :user_name            => ENV['SMTP_USER_NAME'],
-    :password             => ENV['SMTP_PASSWORD'],
-    :authentication       => :plain,
-    :enable_starttls_auto => true
-}
-
-config.action_mailer.default_url_options = {
-  :host => "Codetry.org"
-}
+  
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
