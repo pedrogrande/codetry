@@ -1,4 +1,5 @@
 Codetry::Application.routes.draw do
+  get "sitemap.xml" => "sitemap#index", as: "sitemap", defaults: { format: "xml" }
 
   get "admin/index", :id => "admin"
   match "admin" => "admin#index"
