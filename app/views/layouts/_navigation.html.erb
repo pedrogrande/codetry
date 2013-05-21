@@ -10,13 +10,13 @@
       <ul class="nav pull-right">
         <% if user_signed_in? %>
           <li>
-            <%= link_to new_user_poem_path(current_user), :alt => "write new poem", :title => "write new code poem", :data => { :toggle => 'tooltip', :trigger => 'focus' }, :id => 'tooltip' do %>
+            <%= link_to new_user_poem_path(current_user), :alt => "write new poem", :title => "write new code poem", :rel => 'tooltip', "data-placement" => "bottom" do %>
               <i class="icon-pencil icon-large"></i>
             <% end %>
           </li>
           <% else %>
             <li>
-              <%= link_to new_user_session_path, :alt => "write new poem", :title => "write new code poem", :data => { :toggle => 'tooltip', :trigger => 'focus' }, :id => 'tooltip' do %>
+              <%= link_to new_user_session_path, :alt => "write new poem", :title => "write new code poem", :rel => 'tooltip', "data-placement" => "bottom" do %>
                 <i class="icon-pencil icon-large"></i>
               <% end %>
             </li>

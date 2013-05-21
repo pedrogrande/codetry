@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require jqcloud
+jQuery( function($) {
+    $('a').tooltip();
+});
 //= require_tree .
-
-$('#tooltip').tooltip({trigger: 'hover'})
