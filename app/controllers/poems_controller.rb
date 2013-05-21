@@ -35,15 +35,14 @@ class PoemsController < ApplicationController
   def show
     @poem = @user.poems.find(params[:id])
     @comments = Comment.all
+    impressionist(@poem)
 
-    if @poem.impressions.count >= 1
-      @last_user = User.find(@poem.impressions.last.user_id)
-    end
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @poem }
     end
-    impressionist(@poem,message:"") #message is optional
+    
   end
 
   # GET /poems/new
