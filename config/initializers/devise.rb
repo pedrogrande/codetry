@@ -7,8 +7,9 @@ Devise.setup do |config|
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
   config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
   require "omniauth-facebook" 
-  config.omniauth :facebook, 'FACEBOOK_ID', 'FACEBOOK_SECRET'
-
+  config.omniauth :facebook, 'FACEBOOK_ID', 'FACEBOOK_SECRET',
+      {:scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
+  
   require "omniauth-google-oauth2"
   config.omniauth :google_oauth2, "GOOGLE_ID", "GOOGLE_SECRET", { access_type: "offline", approval_prompt: "" }
 
