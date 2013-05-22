@@ -1,0 +1,15 @@
+[global]
+ApplicationName=codetry1
+ApplicationVersionName=git-8dd33aa9145deeac4dbfc48719468f68c22d0ec6-1369188893496
+AwsCredentialFile=/Users/pete/.elasticbeanstalk/aws_credential_file
+DevToolsEndpoint=git.elasticbeanstalk.us-east-1.amazonaws.com
+EnvironmentName=codetry1-env
+InstanceProfileName=aws-elasticbeanstalk-ec2-role
+OptionSettingFile=/Users/pete/Rails/codetry/.elasticbeanstalk/optionsettings.codetry1-env
+RdsDeletionPolicy=Delete
+RdsEnabled=Yes
+RdsSourceSnapshotName=
+Region=us-east-1
+ServiceEndpoint=https://elasticbeanstalk.us-east-1.amazonaws.com
+SolutionStack=64bit Amazon Linux running Ruby 1.9.3
+

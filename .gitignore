@@ -77,4 +77,3 @@ pickle-email-*.html
 
 # Ignore profile images
 \public\uploads
-.elasticbeanstalk/
