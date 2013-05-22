@@ -11,6 +11,6 @@ class CreatePoems < ActiveRecord::Migration
       t.timestamps
     end
     add_index :poems, :user_id
-    add_index :poems, :slug, :unique => true
+    add_index :poems, :slug
   end
 end
