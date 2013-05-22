@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(:version => 20130513053203) do
   create_table "poems", :force => true do |t|
     t.string   "title"
     t.text     "content"
-    t.text     "slug"
+    t.string   "slug"
     t.string   "language"
     t.integer  "user_id"
     t.datetime "created_at",                   :null => false
