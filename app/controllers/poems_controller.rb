@@ -23,10 +23,14 @@ class PoemsController < ApplicationController
   # GET /poems
   # GET /poems.json
   def index
-    @poems = @user.poems.all
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @poems }
+    if current_user == @user
+      @poems = @user.poems.all
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @poems }
+      end
+    else
+      redirect_to root_path
     end
   end
 
