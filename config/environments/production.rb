@@ -75,9 +75,8 @@ Codetry::Application.configure do
     domain: "codetry.org",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: ENV["GMAIL_USERNAME"],
-    password: ENV["GMAIL_PASSWORD"]
-  }
+    user_name: 'peter@sydneydevcap.com',
+    password: 'Cas1n073!'  }
 
 
 

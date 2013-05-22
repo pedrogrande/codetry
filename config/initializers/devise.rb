@@ -7,14 +7,14 @@ Devise.setup do |config|
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
   config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
   require "omniauth-facebook" 
-  config.omniauth :facebook, ENV['FACEBOOK_ID'], ENV['FACEBOOK_SECRET'],
+  config.omniauth :facebook, '456046651140636', 'f79cc63b615a448707c7069f76825d7d',
       {:scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
   
   require "omniauth-google-oauth2"
-  config.omniauth :google_oauth2, ENV['GOOGLE_ID'], ENV['GOOGLE_SECRET'], { access_type: "offline", approval_prompt: "" }
+  config.omniauth :google_oauth2, '679724997825.apps.googleusercontent.com', 'jtkZdVTWBiFkj1YNh7N7ah9b', { access_type: "offline", approval_prompt: "" }
 
   require 'omniauth-twitter'
-  config.omniauth :twitter ,ENV['TWITTER_ID'], ENV['TWITTER_SECRET']
+  config.omniauth :twitter ,'MidblOThPpyHHO6zTwuQ', 'caRIKmAxpUmVROZZehAujMM37ZGHaf4Kl16WUancVQ'
   
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
