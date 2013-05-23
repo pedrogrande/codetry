@@ -105,13 +105,14 @@ class PoemsController < ApplicationController
   # DELETE /poems/1
   # DELETE /poems/1.json
   def destroy
-    authorize! :destroy, @user, :message => 'Not authorized as an administrator.'
-    @poem = @user.poems.find(params[:id])
-    @poem.destroy
+    if current_user == @user || current_user.has_role?(:admin)
+      @poem = @user.poems.find(params[:id])
+      @poem.destroy
 
-    respond_to do |format|
-      format.html { redirect_to user_poems_path(@user) }
-      format.json { head :no_content }
+      respond_to do |format|
+        format.html { redirect_to user_poems_path(@user) }
+        format.json { head :no_content }
+      end
     end
   end
 

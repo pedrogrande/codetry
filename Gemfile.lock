@@ -255,6 +255,7 @@ DEPENDENCIES
   impressionist
   jqcloud-rails
   jquery-rails
+  json
   mysql2
   omniauth
   omniauth-facebook
